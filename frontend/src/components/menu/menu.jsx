@@ -9,7 +9,7 @@ const Menu = () => {
           <a className="sidebar-brand brand-logo" href="index.html">
             <img src="assets/images/logo.svg" alt="logo" />
           </a>
-          <a className="sidebar-brand brand-logo-mini" href="index.html">
+          <a className="sidebar-brand brand-logo-mini" href="/">
             <img src="assets/images/logo-mini.svg" alt="logo" />
           </a>
         </div>
@@ -30,14 +30,14 @@ const Menu = () => {
                   <span>Gold Member</span>
                 </div>
               </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown">
+              <a href="/" id="profile-dropdown" data-toggle="dropdown">
                 <i className="mdi mdi-dots-vertical"></i>
               </a>
               <div
                 className="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
                 aria-labelledby="profile-dropdown"
               >
-                <a href="#" className="dropdown-item preview-item">
+                <a href="/" className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-settings text-primary"></i>
@@ -50,7 +50,7 @@ const Menu = () => {
                   </div>
                 </a>
                 <div className="dropdown-divider"></div>
-                <a href="#" className="dropdown-item preview-item">
+                <a href="/" className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-onepassword  text-info"></i>
@@ -63,7 +63,7 @@ const Menu = () => {
                   </div>
                 </a>
                 <div className="dropdown-divider"></div>
-                <a href="#" className="dropdown-item preview-item">
+                <a href="/" className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
                       <i className="mdi mdi-calendar-today text-success"></i>

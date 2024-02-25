@@ -9,6 +9,7 @@ function App() {
       <div className="container-scroller">
         <Menu></Menu>
       </div>
+
       <div className="container-fluid page-body-wrapper">
         <Header></Header>
       </div>
