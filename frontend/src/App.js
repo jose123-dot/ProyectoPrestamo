@@ -1,11 +1,17 @@
 import "./App.css";
 
 import Menu from "./components/menu/menu.jsx";
+import Header from "./components/header/header.jsx";
 
 function App() {
   return (
     <>
-      <h1>Hola Mundos Orlando</h1>;<Menu></Menu>
+      <div className="container-scroller">
+        <Menu></Menu>
+      </div>
+      <div className="container-fluid page-body-wrapper">
+        <Header></Header>
+      </div>
     </>
   );
 }
