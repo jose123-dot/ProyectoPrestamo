@@ -1,19 +1,14 @@
-import "./App.css";
-
-import Menu from "./components/menu/menu.jsx";
-import Header from "./components/header/header.jsx";
-import Main from "./components/main/main.jsx";
+import Login from "./components/login/login";
+import Dashboard from "./components/Dashboard/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <>
-      <div className="container-scroller">
-        <Menu></Menu>
-        <div className="container-fluid page-body-wrapper">
-          <Header></Header>
-          <Main></Main>
-        </div>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={Login}></Route>
+        <Route path="/Dashboard" Component={Dashboard}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
