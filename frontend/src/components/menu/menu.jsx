@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -42,12 +43,9 @@ const Menu = () => {
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
                   {" "}
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/dropdowns.html"
-                  >
+                  <Link className="nav-link" to="/solicitudp">
                     Solicitud Persona
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   {" "}

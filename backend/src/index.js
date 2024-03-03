@@ -3,6 +3,7 @@ import express, { json } from "express";
 import { createRol } from "./libs/InitialSeptup.js";
 import morgan from "morgan";
 import cors from "cors";
+import routerSolPersona from "./router/solicitudPersona-router.js";
 
 const app = express();
 
@@ -17,7 +18,8 @@ createRol();
 app.use(morgan("dev"));
 
 //routes
-app.use("/api/", authrouter);
+//app.use("/api/", authrouter);
+app.use("/api/solicitudpersona/", routerSolPersona);
 
 // toca hacer los router de los demas
 app.listen(4000, () => console.log("Servidor ejecutado"));

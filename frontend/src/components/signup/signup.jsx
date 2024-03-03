@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const Signup = () => {
   return (
     <>
       <section className="vh-100">
@@ -14,10 +14,23 @@ const Login = () => {
               />
             </div>
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
-              <h1>Login</h1>
+              <h1>Registro</h1>
 
               <form>
                 {/*   <!-- Email input --> */}
+                <div className="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="form1Example13"
+                    className="form-control form-control-lg"
+                  />
+
+                  <label className="form-label" htmlFor="form1Example13">
+                    User Name
+                  </label>
+                  {/* errores de validacion */}
+                </div>
+
                 <div className="form-outline mb-4">
                   <input
                     type="email"
@@ -30,6 +43,7 @@ const Login = () => {
                   </label>
                   {/* errores de validacion */}
                 </div>
+
                 {/*   <!-- Password input --> */}
                 <div className="form-outline mb-4">
                   <input
@@ -46,7 +60,7 @@ const Login = () => {
                   type="submit"
                   className="btn btn-primary btn-lg btn-block"
                 >
-                  Sign in
+                  Sign up
                 </button>
               </form>
             </div>
@@ -57,4 +71,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
