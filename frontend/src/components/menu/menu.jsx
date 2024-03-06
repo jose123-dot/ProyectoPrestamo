@@ -18,12 +18,12 @@ const Menu = () => {
             <span className="nav-link">Navegacion</span>
           </li>
           <li className="nav-item menu-items">
-            <a className="nav-link" href="index.html">
+            <Link className="nav-link" to="/dashboard">
               <span className="menu-icon">
                 <i className="mdi mdi-speedometer"></i>
               </span>
               <span className="menu-title">Dashboard</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item menu-items">
             <a

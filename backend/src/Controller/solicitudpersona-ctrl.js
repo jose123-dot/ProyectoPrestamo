@@ -51,7 +51,6 @@ export const saveSolicitudPersona = async (req, res) => {
 //editar
 export const editSolicitudPersona = async (req, res) => {
   const {
-    _id,
     nombre,
     apellido,
     documento,
@@ -68,6 +67,8 @@ export const editSolicitudPersona = async (req, res) => {
     direcciontrabajo,
     estatus,
   } = req.body;
+
+  const { _id } = req.params;
 
   const sPersona = {
     nombre: nombre,
@@ -92,7 +93,7 @@ export const editSolicitudPersona = async (req, res) => {
 
 //eliminar
 export const deleteSolicitudPersona = async (req, res) => {
-  const { _id } = req.body;
+  const { _id } = req.params;
   await SolicitudPersonaModel.findByIdAndDelete({ _id: _id });
   res.json(req.body);
 };

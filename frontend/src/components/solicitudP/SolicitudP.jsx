@@ -1,7 +1,25 @@
 import React from "react";
+import Menu from "../menu/menu.jsx";
+import Header from "../header/header.jsx";
+
+import SolicitudPTable from "../solicitudP/SolicitudPTable.jsx";
 
 const SolicitudP = () => {
-  return <h1>Hola Mundo</h1>;
+  return (
+    <>
+      <div className="container-scroller">
+        <Menu></Menu>
+        <div className="container-fluid page-body-wrapper">
+          <Header></Header>
+          <div className="main-panel ">
+            <div className="content-wrapper">
+              <SolicitudPTable></SolicitudPTable>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default SolicitudP;
