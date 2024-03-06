@@ -1,7 +1,8 @@
 import React from "react";
 import Menu from "../menu/menu.jsx";
 import Header from "../header/header.jsx";
-import SolicitudPform from "../solicitudP/SolicitupPform.jsx";
+
+import SolicitudPTable from "../solicitudP/SolicitudPTable.jsx";
 
 const SolicitudP = () => {
   return (
@@ -10,9 +11,9 @@ const SolicitudP = () => {
         <Menu></Menu>
         <div className="container-fluid page-body-wrapper">
           <Header></Header>
-          <div className="main-panel">
+          <div className="main-panel ">
             <div className="content-wrapper">
-              <SolicitudPform></SolicitudPform>
+              <SolicitudPTable></SolicitudPTable>
             </div>
           </div>
         </div>

@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const SolicitudPform = () => {
+const SolicitupPCreate = () => {
+  const [inputData, setInputData] = useState({
+    nombre: "",
+    apellido: "",
+    documento: "",
+    apodo: "",
+    nacionalidad: "",
+    sexo: "",
+    ocupacion: "",
+    lugartrabajo: "",
+    celular: "",
+    telefonoResidencial: "",
+    email: "",
+    direccionpersonal: "",
+    direccionfamiliar: "",
+    direcciontrabajo: "",
+    estatus: "Pendiente",
+  });
+  const navegate = useNavigate();
+
+  //evento para el submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4000/api/solicitudpersona/agregar", inputData)
+      .then((res) => {
+        alert("se ha Insertado Correctamente!");
+        navegate("/solicitudp");
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <button
@@ -12,14 +45,13 @@ const SolicitudPform = () => {
         <span>
           <i className="mdi mdi-account-multiple-outline"></i>
         </span>{" "}
-        Solicitar Nuevo Prestamo Personal
+        Nueva Solicitud
       </button>
 
       {/* boton para activar el modal para agregar */}
       <div
         className="modal fade"
         id="exampleModalLong"
-        tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLongTitle"
         aria-hidden="true"
@@ -27,12 +59,15 @@ const SolicitudPform = () => {
         <div className="modal-dialog" role="document">
           <div className="modal-content bg-dark">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLongTitle">
+              <h5
+                className="modal-title display-3 text-center"
+                id="exampleModalLongTitle"
+              >
                 Solicitar Nuevo Prestamo
               </h5>
               <button
                 type="button"
-                className="close"
+                className="close bg-danger text-white"
                 data-dismiss="modal"
                 aria-label="Close"
               >
@@ -40,10 +75,10 @@ const SolicitudPform = () => {
               </button>
             </div>
             <div className="modal-body">
-              <form className="forms-sample">
+              <form className="forms-sample" onSubmit={handleSubmit}>
                 <div className="form-group row">
                   <label
-                    for="exampleInputUsername2"
+                    htmlFor="exampleInputUsername2"
                     className="col-sm-3 col-form-label"
                   >
                     Nombre
@@ -54,12 +89,15 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputUsername2"
                       placeholder="Nombre"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, nombre: e.target.value })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputEmail2"
+                    htmlFor="exampleInputEmail2"
                     className="col-sm-3 col-form-label"
                   >
                     Apellido
@@ -70,12 +108,15 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputEmail2"
                       placeholder="Apellido"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, apellido: e.target.value })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputMobile"
+                    htmlFor="exampleInputMobile"
                     className="col-sm-3 col-form-label"
                   >
                     Documento
@@ -86,12 +127,18 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputMobile"
                       placeholder="Cedula o Pasaporte"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          documento: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputPassword2"
+                    htmlFor="exampleInputPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Apodo
@@ -102,12 +149,15 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputPassword2"
                       placeholder="Apodo"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, apodo: e.target.value })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Nacionalidad
@@ -118,12 +168,18 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Nacionalidad"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          nacionalidad: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleFormControlSelect2"
+                    htmlFor="exampleFormControlSelect2"
                     className="col-sm-3 col-form-label"
                   >
                     Sexo
@@ -132,6 +188,9 @@ const SolicitudPform = () => {
                     <select
                       className="form-control"
                       id="exampleFormControlSelect2"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, sexo: e.target.value })
+                      }
                     >
                       <option>Masculino</option>
                       <option>Femenino</option>
@@ -141,7 +200,7 @@ const SolicitudPform = () => {
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Ocupacion
@@ -152,12 +211,18 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Ocupacion"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          ocupacion: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Lugar de Trabajo
@@ -168,12 +233,18 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Lugar de Trabajo"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          lugartrabajo: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Celular
@@ -184,13 +255,16 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Celular"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, celular: e.target.value })
+                      }
                     />
                   </div>
                 </div>
 
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Telefono Residencial
@@ -201,13 +275,19 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Telefono Residencial"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          telefonoResidencial: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
 
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Email
@@ -218,13 +298,16 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Email"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, email: e.target.value })
+                      }
                     />
                   </div>
                 </div>
 
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Direccion Personal
@@ -235,13 +318,19 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Direccion Personal"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          direccionpersonal: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
 
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Direccion Familiar
@@ -252,12 +341,18 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Direccion Familiar"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          direccionfamiliar: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <div className="form-group row">
                   <label
-                    for="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
                     Direccion de Trabajo
@@ -268,13 +363,25 @@ const SolicitudPform = () => {
                       className="form-control"
                       id="exampleInputConfirmPassword2"
                       placeholder="Direccion de Trabajo"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          direcciontrabajo: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
                 <button type="submit" className="btn btn-primary mr-2">
                   <span className="mdi mdi-send"></span> Enviar Solicitud
                 </button>
-                <button className="btn btn-danger">Cancelar Orden</button>
+                <button
+                  className="btn btn-danger text-white "
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  Cancelar Orden
+                </button>
               </form>
             </div>
           </div>
@@ -283,4 +390,4 @@ const SolicitudPform = () => {
     </>
   );
 };
-export default SolicitudPform;
+export default SolicitupPCreate;

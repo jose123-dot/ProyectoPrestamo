@@ -20,14 +20,14 @@ SolicitudPersonaRouter.post(
 
 //editar
 SolicitudPersonaRouter.put(
-  "/editar",
+  "/editar/:id",
   validateSchema(SolicitudPersonaSchema),
   solicitudPersonaCtrl.editSolicitudPersona
 );
 
 //eliminar
 SolicitudPersonaRouter.delete(
-  "/eliminar",
+  "/eliminar/:id",
   solicitudPersonaCtrl.deleteSolicitudPersona
 );
 
