@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-
+import { Decimal128 } from "mongoose";
 
 const SolicitudEmpresaSchema = new Schema({
 nombre: {
@@ -45,7 +45,7 @@ sitioweb: {
 },
 
 ingresosanuales:  {
-    type: mongoose.Decimal182,
+    type: Decimal128,
     required: true,
 },
 
@@ -61,8 +61,9 @@ fechafundacion: {
 },
 
 totalactivos:{
-    type: mongoose.Decimal182,
+    type: Decimal128,
     required: true,
+   
 },
 direccion: {
     type: String,
