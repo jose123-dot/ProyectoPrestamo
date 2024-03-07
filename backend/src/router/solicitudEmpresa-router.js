@@ -4,25 +4,25 @@ import * as solicitudEmpresaCtrl from "../Controller/solicitudempresa-ctrl.js";
 const SolicitudEmpresaRouter = Router();
 
 //obtener
-SolicitudEmpresaRouter.get("/", solicitudPersonaCtrl.getSolicitudEmpresa);
+SolicitudEmpresaRouter.get("/", solicitudEmpresaCtrl.getSolicitudEmpresa);
 
 //agregar
 
 SolicitudEmpresaRouter.post(
   "/agregar",
-  solicitudEmpresaCtrl.saveSolicitudPersona
+  solicitudEmpresaCtrl.saveSolicitudEmpresa
 );
 
 //editar
 SolicitudEmpresaRouter.put(
   "/editar",
-  solicitudEmpresaCtrl.editSolicitudPersona
+  solicitudEmpresaCtrl.editSolicitudEmpresa
 );
 
 //eliminar
 SolicitudEmpresaRouter.delete(
   "/eliminar",
-  solicitudEmpresaCtrl.deleteSolicitudPersona
+  solicitudEmpresaCtrl.deleteSolicitudEmpresa
 );
 
 export default SolicitudEmpresaRouter;
