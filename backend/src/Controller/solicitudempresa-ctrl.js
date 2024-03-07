@@ -56,6 +56,7 @@ export const saveSolicitudEmpresa = async (req, res) => {
 export const editSolicitudEmpresa = async (req, res) => {
   const {
     _id,
+    nombre,
     rnc,
     fax,
     actividad,
