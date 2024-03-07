@@ -10,38 +10,26 @@ export const getcontrato = async (req, res) => {
 
 export const saveContrato = async (req, res) => {
     const {
-    nombre,
-    apellido,
-    documento,
-    nacionalidad,
-    direccion,
-    telefono,
-    correoelectronico,
-    sexo,
-    apodo,
-    ocupacion,
-    sueldo,
+    idcontrato,
+    idusuario,
+    idrevisionsolicitud,
+    idmetodopago,
+    tasanumberes,
     fechainicio,
-    intereses,
-    fechafin,
+    duracionmeses,
     monto,
+    diapago,
     } = req.body;
     const sContrato = {
-        nombre : nombre,
-        apellido : apellido,
-        documento : documento,
-        nacionalidad : nacionalidad,
-        direccion : direccion,
-        telefono : telefono,
-        correoelectronico : correoelectronico,
-        sexo : sexo,
-        apodo : apodo,
-        ocupacion : ocupacion,
-        sueldo : sueldo,
-        fechainicio : fechainicio,
-        intereses : intereses,
-        fechafin : fechafin,
-        monto : monto,
+       idcontrato : idcontrato,
+       idusuario : idusuario,
+       idrevisionsolicitud : idrevisionsolicitud,
+       idmetodopago : idmetodopago,
+       tasanumberes : tasanumberes,
+       fechainicio : fechainicio,
+       duracionmeses : duracionmeses,
+       monto : monto,
+       diapago : diapago,
     };
     await contratoModel.create(sContrato);
     res.send(sContrato); 
@@ -51,43 +39,30 @@ export const saveContrato = async (req, res) => {
 
 export const editContrato = async (req, res) => {
     const {
-        _id,
-        nombre,
-        apellido,
-        documento,
-        nacionalidad,
-        direccion,
-        telefono,
-        correoelectronico,
-        sexo,
-        apodo,
-        ocupacion,
-        sueldo,
+        idcontrato,
+        idusuario,
+        idrevisionsolicitud,
+        idmetodopago,
+        tasanumberes,
         fechainicio,
-        intereses,
-        fechafin,
+        duracionmeses,
         monto,
+        diapago,
     } = req.body; 
 
     const sContrato = {
-        nombre : nombre,
-        apellido : apellido,
-        documento : documento,
-        nacionalidad : nacionalidad,
-        direccion : direccion,
-        telefono : telefono,
-        correoelectronico : correoelectronico,
-        sexo : sexo,
-        apodo : apodo,
-        ocupacion : ocupacion,
-        sueldo : sueldo,
+        idcontrato : idcontrato,
+        idusuario : idusuario,
+        idrevisionsolicitud : idrevisionsolicitud,
+        idmetodopago : idmetodopago,
+        tasanumberes : tasanumberes,
         fechainicio : fechainicio,
-        intereses : intereses,
-        fechafin : fechafin,
-        monto : monto,   
+        duracionmeses : duracionmeses,
+        monto : monto,
+        diapago : diapago,  
     };
 
-    await ContratoModel.findByIdAndUpdate(_id, sContrato);
+    await ContratoModel.findByIdAndUpdate(idcontrato, sContrato);
     res.json(req.body);
 };
 
@@ -95,6 +70,6 @@ export const editContrato = async (req, res) => {
 
 export const deleteContrato = async (req, res) => {
     const {_id} = req.body;
-    await ContratoModel.findByIdAndDelete ({_id : _id});
+    await ContratoModel.findByIdAndDelete ({idcontrato : idcontrato});
     res.json(req.body);
 };

@@ -9,20 +9,14 @@ export const getmetodopago = async (req, res) => {
 
 export const saveMetodoPago = async (req, res) => {
     const {
-    nombre,
-    correoelectronico,
-    numeracion,
-    fechavencimiento,
-    CVV,
-    tipo,
+   idmetodopago,
+   tipo,
+   estatus,
     } = req.body;
     const sMetodoPago = {
-        nombre : nombre,
-        correoelectronico : correoelectronico,
-        numeracion : numeracion,
-        fechavencimiento : fechavencimiento,
-        CVV : CVV,
+        idmetodopago :idmetodopago,
         tipo : tipo,
+        estatus : estatus,
     };
     await MetodoPagoModel.create(sMetodoPago);
     res.send(sMetodoPago); 
@@ -32,24 +26,17 @@ export const saveMetodoPago = async (req, res) => {
 
 export const editMetodoPago = async (req, res) => {
  const {
-    _id,
-    nombre,
-    correoelectronico,
-    numeracion,
-    fechavencimiento,
-    CVV,
-    tipo,
+    idmetodopago,
+   tipo,
+   estatus,
  } = req.body;
  const sMetodoPago =  {
-    nombre : nombre,
-    correoelectronico : correoelectronico,
-    numeracion : numeracion,
-    fechavencimiento : fechavencimiento,
-    CVV : CVV,
+    idmetodopago :idmetodopago,
     tipo : tipo,
+    estatus : estatus,
  };
 
- await MetodoPagoModel.findByIdAndUpdate(_id, sMetodoPago);
+ await MetodoPagoModel.findByIdAndUpdate(idmetodopago, sMetodoPago);
  res.json(req.body);
 };
 
@@ -57,6 +44,6 @@ export const editMetodoPago = async (req, res) => {
 
 export const deleteMetodoPago = async (req, res) => {
     const {_id} = req.body;
-    await MetodoPagoModel.findByIdAndDelete ({_id : _id});
+    await MetodoPagoModel.findByIdAndDelete ({idmetodopago : idmetodopago});
     res.json(req.body);
 };
