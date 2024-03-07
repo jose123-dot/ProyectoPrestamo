@@ -1,5 +1,6 @@
 import { model, Schema } from "mongoose";
 
+
 const SolicitudEmpresaSchema = new Schema({
 nombre: {
     type: String,
@@ -43,10 +44,9 @@ sitioweb: {
     max: 40
 },
 
-ingresosanuales: {
-    type: Decimal128,
+ingresosanuales:  {
+    type: mongoose.Decimal182,
     required: true,
-    max: 20
 },
 
 paisfundacion: {
@@ -60,12 +60,10 @@ fechafundacion: {
     required: true
 },
 
-totalactivos: {
-    type: Decimal182,
+totalactivos:{
+    type: mongoose.Decimal182,
     required: true,
-    max: 20
 },
-
 direccion: {
     type: String,
     required: true,
