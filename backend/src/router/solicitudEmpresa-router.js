@@ -1,6 +1,6 @@
 //importador libreria
 import express, { Router } from "express";
-import * as solicitudEmpresaCtrl from "../Controller/solicitudEmpresa-ctrl.js";
+import * as solicitudEmpresaCtrl from "../Controller/solicitudempresa-ctrl.js";
 const SolicitudEmpresaRouter = Router();
 
 //obtener
