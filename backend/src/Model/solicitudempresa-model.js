@@ -88,7 +88,6 @@ provincia: {
 codigo: {
     type: Number,
     required: true,
-    max: 15
 },
 
 estatus: {
