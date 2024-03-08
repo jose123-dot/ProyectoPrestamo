@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as metodopagocontroller from "../Controller/metodopago-controller"
+import * as metodopagocontroller from "../Controller/metodopago-controller.js"
 const MetodoPagoRouter = Router();
 
 //obter vistas
@@ -24,4 +24,4 @@ MetodoPagoRouter.put(
     metodopagocontroller.deleteMetodoPago
   );
 
-  export default MetodoPagoRouter();
+  export default MetodoPagoRouter;

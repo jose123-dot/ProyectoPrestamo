@@ -1,10 +1,10 @@
-import { Router } from "express"
+import express, {Router} from "express"
 import * as contratocontroller from "../Controller/contrato-controller.js";
 const ContratoRouter = Router();
 
 //Obtener 
 
-ContratoRouterRouter.get("/", contratocontroller.getcontrato);
+ContratoRouter.get("/", contratocontroller.getcontrato);
 
 //Agregar 
 

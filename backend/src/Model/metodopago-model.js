@@ -1,6 +1,6 @@
-import {model, schema} from "mongoose";
+import {model, Schema} from "mongoose";
 
-const MetodoPagoSchema = new schema ({
+const MetodoPagoSchema = new Schema ({
 idmetodopago : {
     type : Number,
     required : true,
@@ -8,8 +8,9 @@ idmetodopago : {
 },
 
 tipo : {
-    type : schema.types.ObjectId,
-    ref : tipo,
+    type : String,
+    max : 12,
+    required : true,
 },
 
 estatus : {

@@ -43,7 +43,7 @@ export const editMetodoPago = async (req, res) => {
 //Eliminar metodo de pago
 
 export const deleteMetodoPago = async (req, res) => {
-    const {_id} = req.body;
+    const {idmetodopago} = req.body;
     await MetodoPagoModel.findByIdAndDelete ({idmetodopago : idmetodopago});
     res.json(req.body);
 };

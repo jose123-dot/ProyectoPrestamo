@@ -1,53 +1,54 @@
-import {model, schema} from "mongoose";
+import mongoose from "mongoose";
 
-const ContratoSchema = new schema ({
-    idcontrato : {
-        type : Number,
+const { Schema } = mongoose;
+
+const ContratoSchema = new Schema({
+    idcontrato: {
+        type: Number,
         required: true,
-        unique : true,
+        unique: true,
     },
 
-    idusuario : {
-        type : schema.types.ObjectId,
-        ref : idusuario,
+    idusuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'idusuario',
     },
 
-    idrevisionsolicitud : {
-        type : schema.types.ObjectId,
-        ref : idrevisionsolicitud,
+    idrevisionsolicitud: {
+        type: Schema.Types.ObjectId,
+        ref: 'idrevisionsolicitud',
     },
 
-    idmetodopago : {
-    type : schema.types.ObjectId,
-    ref : idmetodopago,
-}, 
+    idmetodopago: {
+        type: Schema.Types.ObjectId,
+        ref: 'idmetodopago',
+    },
 
-monto : {
-    type : decimal,
-    max : 18.2,
-    required : true,
-},
-tasanumberes : {
-    type : decimal,
-    max : 5.2,
-    required : true,
-},
+    monto: {
+        type: Schema.Types.Decimal128,
+        required: true,
+    },
+    
+    tasanumberes: {
+        type: Schema.Types.Decimal128,
+        required: true,
+    },
 
-fechainicio : {
-    type : Datetime,
-    required : true,
-},
+    fechainicio: {
+        type: Date,
+        required: true,
+    },
 
-duracionmeses : {
-    type : Number,
-    required : true,
-},
+    duracionmeses: {
+        type: Number,
+        required: true,
+    },
 
-diapago : {
-    type : Datetime,
-    required : true,
-}, 
+    diapago: {
+        type: Date,
+        required: true,
+    },
 
-}); 
+});
 
-export default model ("contrato", ContratoSchema);
+export default mongoose.model("contrato", ContratoSchema);
