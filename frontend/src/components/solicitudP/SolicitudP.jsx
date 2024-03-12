@@ -12,7 +12,7 @@ const SolicitudP = () => {
         <div className="container-fluid page-body-wrapper">
           <Header></Header>
           <div className="main-panel ">
-            <div className="content-wrapper">
+            <div className="content-wrapper bg-dark">
               <SolicitudPTable></SolicitudPTable>
             </div>
           </div>
