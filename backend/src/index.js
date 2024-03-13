@@ -6,6 +6,7 @@ import cors from "cors";
 import routerSolPersona from "./router/solicitudPersona-router.js";
 import routerContrato from "./router/contrato-router.js";
 import routermetodopago from "./router/metodopago-router.js";
+import routeraprobaciongarante from "./router/aprobaciongarante-router.js";
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(morgan("dev"));
 app.use("/api/solicitudpersona/", routerSolPersona);
 app.use("/api/contrato/", routerContrato);
 app.use("/api/metodopago/", routermetodopago);
+app.use("/api/aprobaciongarante/", routeraprobaciongarante);
 
 // toca hacer los router de los demas
 app.listen(4000, () => console.log("Servidor ejecutado"));

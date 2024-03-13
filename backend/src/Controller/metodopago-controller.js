@@ -20,7 +20,7 @@ export const saveMetodoPago = async (req, res) => {
     };
     await MetodoPagoModel.create(sMetodoPago);
     res.send(sMetodoPago); 
-} 
+};
 
 //Editar metodo de pago 
 
