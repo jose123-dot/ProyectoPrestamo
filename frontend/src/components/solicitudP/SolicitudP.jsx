@@ -1,8 +1,7 @@
 import React from "react";
 import Menu from "../menu/menu.jsx";
 import Header from "../header/header.jsx";
-
-import SolicitudPTable from "../solicitudP/SolicitudPTable.jsx";
+import SolicitupPCreate from "../solicitudP/SolicitupPCreate.jsx";
 
 const SolicitudP = () => {
   return (
@@ -12,8 +11,8 @@ const SolicitudP = () => {
         <div className="container-fluid page-body-wrapper">
           <Header></Header>
           <div className="main-panel ">
-            <div className="content-wrapper">
-              <SolicitudPTable></SolicitudPTable>
+            <div className="content-wrapper bg-dark">
+              <SolicitupPCreate></SolicitupPCreate>
             </div>
           </div>
         </div>

@@ -6,19 +6,31 @@ const SolicitupPCreate = () => {
   const [inputData, setInputData] = useState({
     nombre: "",
     apellido: "",
-    documento: "",
     apodo: "",
     nacionalidad: "",
     sexo: "",
+    tipodocumento: "",
+    documento: "",
     ocupacion: "",
-    lugartrabajo: "",
+    telefonoresidencial: "",
     celular: "",
-    telefonoResidencial: "",
-    email: "",
-    direccionpersonal: "",
+    correo: "",
+    direccion: "",
+    noedificio: "",
+    nocasa: "",
+    sector: "",
+    municipio: "",
+    provincia: "",
     direccionfamiliar: "",
+    cargotrabajo: "",
     direcciontrabajo: "",
-    estatus: "Pendiente",
+    fuenteingreso: 0.0,
+    otrosingresos: false,
+    poseeinmueble: false,
+    valorinmueble: 0.0,
+    poseevehiculo: false,
+    valorvehiculo: 0.0,
+    monto: 0.0,
   });
   const navegate = useNavigate();
 
@@ -114,31 +126,10 @@ const SolicitupPCreate = () => {
                     />
                   </div>
                 </div>
+
                 <div className="form-group row">
                   <label
-                    htmlFor="exampleInputMobile"
-                    className="col-sm-3 col-form-label"
-                  >
-                    Documento
-                  </label>
-                  <div className="col-sm-9">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="exampleInputMobile"
-                      placeholder="Cedula o Pasaporte"
-                      onChange={(e) =>
-                        setInputData({
-                          ...inputData,
-                          documento: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                </div>
-                <div className="form-group row">
-                  <label
-                    htmlFor="exampleInputPassword2"
+                    htmlFor="exampleInputEmail2"
                     className="col-sm-3 col-form-label"
                   >
                     Apodo
@@ -147,7 +138,7 @@ const SolicitupPCreate = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="exampleInputPassword2"
+                      id="exampleInputEmail2"
                       placeholder="Apodo"
                       onChange={(e) =>
                         setInputData({ ...inputData, apodo: e.target.value })
@@ -189,13 +180,62 @@ const SolicitupPCreate = () => {
                       className="form-control"
                       id="exampleFormControlSelect2"
                       onChange={(e) =>
-                        setInputData({ ...inputData, sexo: e.target.value })
+                        setInputData({
+                          ...inputData,
+                          sexo: e.target.value,
+                        })
                       }
                     >
                       <option>Masculino</option>
                       <option>Femenino</option>
-                      <option>otro</option>
                     </select>
+                  </div>
+                </div>
+
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleFormControlSelect2"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Tipo de Documento
+                  </label>
+                  <div className="col-sm-9">
+                    <select
+                      className="form-control"
+                      id="exampleFormControlSelect2"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          tipodocumentodocumento: e.target.value,
+                        })
+                      }
+                    >
+                      <option>Cedula</option>
+                      <option>Pasaporte</option>
+                      <option>DNI</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputMobile"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Documento
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputMobile"
+                      placeholder="Cedula o Pasaporte"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          documento: e.target.value,
+                        })
+                      }
+                    />
                   </div>
                 </div>
                 <div className="form-group row">
@@ -203,14 +243,14 @@ const SolicitupPCreate = () => {
                     htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
-                    Ocupacion
+                    Profesion
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
                       id="exampleInputConfirmPassword2"
-                      placeholder="Ocupacion"
+                      placeholder="Profesion"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
@@ -225,18 +265,18 @@ const SolicitupPCreate = () => {
                     htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
-                    Lugar de Trabajo
+                    Telefono Residencial
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
                       id="exampleInputConfirmPassword2"
-                      placeholder="Lugar de Trabajo"
+                      placeholder="Telefono Residencial"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
-                          lugartrabajo: e.target.value,
+                          telefonoresidencial: e.target.value,
                         })
                       }
                     />
@@ -267,18 +307,38 @@ const SolicitupPCreate = () => {
                     htmlFor="exampleInputConfirmPassword2"
                     className="col-sm-3 col-form-label"
                   >
-                    Telefono Residencial
+                    Correo Electronico
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="exampleInputConfirmPassword2"
+                      placeholder="Correo Electronico"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, correo: e.target.value })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputConfirmPassword2"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Direccion
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
                       id="exampleInputConfirmPassword2"
-                      placeholder="Telefono Residencial"
+                      placeholder="Direccion"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
-                          telefonoResidencial: e.target.value,
+                          direccion: e.target.value,
                         })
                       }
                     />
@@ -287,60 +347,121 @@ const SolicitupPCreate = () => {
 
                 <div className="form-group row">
                   <label
-                    htmlFor="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputNoEdificio"
                     className="col-sm-3 col-form-label"
                   >
-                    Email
+                    No. Edificio
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
-                      id="exampleInputConfirmPassword2"
-                      placeholder="Email"
-                      onChange={(e) =>
-                        setInputData({ ...inputData, email: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group row">
-                  <label
-                    htmlFor="exampleInputConfirmPassword2"
-                    className="col-sm-3 col-form-label"
-                  >
-                    Direccion Personal
-                  </label>
-                  <div className="col-sm-9">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="exampleInputConfirmPassword2"
-                      placeholder="Direccion Personal"
+                      id="exampleInputNoEdificio"
+                      placeholder="No. Edificio"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
-                          direccionpersonal: e.target.value,
+                          noedificio: e.target.value,
                         })
                       }
                     />
                   </div>
                 </div>
-
                 <div className="form-group row">
                   <label
-                    htmlFor="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputNoCasa"
                     className="col-sm-3 col-form-label"
                   >
-                    Direccion Familiar
+                    No. Casa
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
-                      id="exampleInputConfirmPassword2"
-                      placeholder="Direccion Familiar"
+                      id="exampleInputNoCasa"
+                      placeholder="No. Casa"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, nocasa: e.target.value })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputSector"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Sector
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputSector"
+                      placeholder="Sector"
+                      onChange={(e) =>
+                        setInputData({ ...inputData, sector: e.target.value })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputMunicipio"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Municipio
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputMunicipio"
+                      placeholder="Municipio"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          municipio: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputProvincia"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Provincia
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputProvincia"
+                      placeholder="Provincia"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          provincia: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputDireccionFamiliar"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Dirección Familiar
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputDireccionFamiliar"
+                      placeholder="Dirección Familiar"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
@@ -352,17 +473,39 @@ const SolicitupPCreate = () => {
                 </div>
                 <div className="form-group row">
                   <label
-                    htmlFor="exampleInputConfirmPassword2"
+                    htmlFor="exampleInputCargoTrabajo"
                     className="col-sm-3 col-form-label"
                   >
-                    Direccion de Trabajo
+                    Cargo de Trabajo
                   </label>
                   <div className="col-sm-9">
                     <input
                       type="text"
                       className="form-control"
-                      id="exampleInputConfirmPassword2"
-                      placeholder="Direccion de Trabajo"
+                      id="exampleInputCargoTrabajo"
+                      placeholder="Cargo de Trabajo"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          cargotrabajo: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputDireccionTrabajo"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Dirección de Trabajo
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputDireccionTrabajo"
+                      placeholder="Dirección de Trabajo"
                       onChange={(e) =>
                         setInputData({
                           ...inputData,
@@ -372,6 +515,165 @@ const SolicitupPCreate = () => {
                     />
                   </div>
                 </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputFuenteIngreso"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Fuente de Ingreso
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="exampleInputFuenteIngreso"
+                      placeholder="Fuente de Ingreso"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          fuenteingreso: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputOtrosIngresos"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Otros Ingresos
+                  </label>
+                  <div className="col-sm-9">
+                    <select
+                      className="form-control"
+                      id="exampleInputOtrosIngresos"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          otrosingresos: e.target.value === "true",
+                        })
+                      }
+                    >
+                      <option value="true">Sí</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputPoseeInmueble"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Posee Inmueble
+                  </label>
+                  <div className="col-sm-9">
+                    <select
+                      className="form-control"
+                      id="exampleInputPoseeInmueble"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          poseeinmueble: e.target.value === "true",
+                        })
+                      }
+                    >
+                      <option value="true">Sí</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputValorInmueble"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Valor del Inmueble
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="exampleInputValorInmueble"
+                      placeholder="Valor del Inmueble"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          valorinmueble: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputPoseeVehiculo"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Posee Vehículo
+                  </label>
+                  <div className="col-sm-9">
+                    <select
+                      className="form-control"
+                      id="exampleInputPoseeVehiculo"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          poseevehiculo: e.target.value === "true",
+                        })
+                      }
+                    >
+                      <option value="true">Sí</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputValorVehiculo"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Valor del Vehículo
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="exampleInputValorVehiculo"
+                      placeholder="Valor del Vehículo"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          valorvehiculo: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="exampleInputMonto"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Monto
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="exampleInputMonto"
+                      placeholder="Monto"
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          monto: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
                 <button type="submit" className="btn btn-primary mr-2">
                   <span className="mdi mdi-send"></span> Enviar Solicitud
                 </button>
