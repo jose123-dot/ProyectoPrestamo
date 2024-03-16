@@ -14,7 +14,6 @@ SolicitudPersonaRouter.get("/", solicitudPersonaCtrl.getSolicitudPersona);
 
 SolicitudPersonaRouter.post(
   "/agregar",
-  validateSchema(SolicitudPersonaSchema),
   solicitudPersonaCtrl.saveSolicitudPersona
 );
 

@@ -1,88 +1,131 @@
 import { model, Schema } from "mongoose";
 
-const SolicitudPersonaSchema = new Schema({
-  nombre: {
-    type: String,
-    require: true,
-    max: 40,
-  },
+const SolicitudPersonaSchema = new Schema(
+  {
+    nombre: {
+      type: String,
+      max: 40,
+      require: true,
+    },
+    apellido: {
+      type: String,
+      max: 40,
+      require: true,
+    },
+    apodo: {
+      type: String,
+      max: 30,
+    },
+    nacionalidad: {
+      type: String,
+      max: 30,
+      require: true,
+    },
+    sexo: {
+      type: String,
+      max: 20,
+      require: true,
+    },
+    tipodocumento: {
+      type: String,
+      max: 20,
+      require: true,
+    },
+    documento: {
+      type: String,
+      max: 30,
+      require: true,
+      unique: true,
+    },
+    ocupacion: {
+      type: String,
+      max: 40,
+      require: true,
+    },
+    telefonoresidencial: {
+      type: String,
+      max: 20,
+    },
+    celular: {
+      type: String,
+      max: 20,
+      require: true,
+    },
+    correo: {
+      type: String,
+      max: 50,
+      unique: true,
+    },
+    direccion: {
+      type: String,
+      max: 30,
+      require: true,
+    },
+    noedificio: {
+      type: String,
+      max: 15,
+    },
+    nocasa: {
+      type: String,
+      max: 15,
+    },
+    sector: {
+      type: String,
+      max: 30,
+    },
+    municipio: {
+      type: String,
+      max: 30,
+      require: true,
+    },
+    provincia: {
+      type: String,
+      max: 30,
+      require: true,
+    },
+    direccionfamiliar: {
+      type: String,
+      max: 70,
+    },
+    cargotrabajo: {
+      type: String,
+      max: 40,
+    },
+    direcciontrabajo: {
+      type: String,
+      max: 70,
+    },
+    fuenteingreso: {
+      type: Schema.Types.Decimal128,
+      require: true,
+    },
+    otrosingresos: {
+      type: Boolean,
+      require: true,
+    },
+    poseeinmueble: {
+      type: Boolean,
+      require: true,
+    },
+    valorinmueble: {
+      type: [Schema.Types.Decimal128],
+    },
+    poseevehiculo: {
+      type: Boolean,
+      require: true,
+    },
+    valorvehiculo: {
+      type: [Schema.Types.Decimal128],
+    },
 
-  apellido: {
-    type: String,
-    require: true,
-    max: 40,
+    monto: {
+      type: [Schema.Types.Decimal128],
+    },
   },
-  documento: {
-    type: String,
-    require: true,
-    max: 30,
-  },
-  nacionalidad: {
-    type: String,
-    require: true,
-    max: 30,
-  },
-  sexo: {
-    type: String,
-    require: true,
-    max: 10,
-  },
-  apodo: {
-    type: String,
-    max: 30,
-  },
-
-  ocupacion: {
-    type: String,
-    max: 30,
-    require: true,
-  },
-
-  lugartrabajo: {
-    type: String,
-    max: 70,
-    require: true,
-  },
-
-  telefonoResidencial: {
-    type: String,
-    max: 20,
-  },
-
-  celular: {
-    type: String,
-    max: 70,
-    require: true,
-  },
-
-  email: {
-    type: String,
-    max: 50,
-    require: true,
-  },
-
-  direccionpersonal: {
-    type: String,
-    max: 70,
-    require: true,
-  },
-  direccionfamiliar: {
-    type: String,
-    max: 70,
-    require: true,
-  },
-
-  direcciontrabajo: {
-    type: String,
-    max: 70,
-    require: true,
-  },
-
-  estatus: {
-    type: String,
-    max: 10,
-    require: true,
-  },
-});
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
 
 export default model("solicitudpersona", SolicitudPersonaSchema);
