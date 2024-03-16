@@ -1,7 +1,7 @@
 import SolicitudPersonaModel from "../Model/solicitudpersona-model.js";
 
-//mostrar todo
 
+//mostrar todo
 export const getSolicitudPersona = async (req, res) => {
   const SolicitudPersona = await SolicitudPersonaModel.find();
   res.json(SolicitudPersona);
@@ -12,36 +12,61 @@ export const saveSolicitudPersona = async (req, res) => {
   const {
     nombre,
     apellido,
-    documento,
+    apodo,
     nacionalidad,
     sexo,
-    apodo,
+    tipodocumento,
+    documento,
     ocupacion,
-    lugartrabajo,
-    telefonoResidencial,
+    telefonoresidencial,
     celular,
-    email,
-    direccionpersonal,
+    correo,
+    direccion,
+    noedificio,
+    nocasa,
+    sector,
+    municipio,
+    provincia,
     direccionfamiliar,
+    cargotrabajo,
     direcciontrabajo,
-    estatus,
+    fuenteingreso,
+    otrosingresos,
+    poseeinmueble,
+    valorinmueble,
+    poseevehiculo,
+    valorvehiculo,
+    monto,
   } = req.body;
+
   const sPersona = {
     nombre: nombre,
     apellido: apellido,
-    documento: documento,
+    apodo: apodo,
     nacionalidad: nacionalidad,
     sexo: sexo,
-    apodo: apodo,
+    tipodocumento: tipodocumento,
+    documento: documento,
     ocupacion: ocupacion,
-    lugartrabajo: lugartrabajo,
-    telefonoResidencial: telefonoResidencial,
+    telefonoresidencial: telefonoresidencial,
     celular: celular,
-    email: email,
-    direccionpersonal: direccionpersonal,
+    correo: correo,
+    direccion: direccion,
+    noedificio: noedificio,
+    nocasa: nocasa,
+    sector: sector,
+    municipio: municipio,
+    provincia: provincia,
     direccionfamiliar: direccionfamiliar,
+    cargotrabajo: cargotrabajo,
     direcciontrabajo: direcciontrabajo,
-    estatus: estatus,
+    fuenteingreso: fuenteingreso,
+    otrosingresos: otrosingresos,
+    poseeinmueble: poseeinmueble,
+    valorinmueble: valorinmueble,
+    poseevehiculo: poseevehiculo,
+    valorvehiculo: valorvehiculo,
+    monto: monto,
   };
 
   await SolicitudPersonaModel.create(sPersona);
@@ -51,40 +76,65 @@ export const saveSolicitudPersona = async (req, res) => {
 //editar
 export const editSolicitudPersona = async (req, res) => {
   const {
-    _id,
     nombre,
     apellido,
-    documento,
+    apodo,
     nacionalidad,
     sexo,
-    apodo,
+    tipodocumento,
+    documento,
     ocupacion,
-    lugartrabajo,
-    telefonoResidencial,
+    telefonoresidencial,
     celular,
-    email,
-    direccionpersonal,
+    correo,
+    direccion,
+    noedificio,
+    nocasa,
+    sector,
+    municipio,
+    provincia,
     direccionfamiliar,
+    cargotrabajo,
     direcciontrabajo,
-    estatus,
+    fuenteingreso,
+    otrosingresos,
+    poseeinmueble,
+    valorinmueble,
+    poseevehiculo,
+    valorvehiculo,
+    monto,
   } = req.body;
+
+  const { _id } = req.params;
 
   const sPersona = {
     nombre: nombre,
     apellido: apellido,
-    documento: documento,
+    apodo: apodo,
     nacionalidad: nacionalidad,
     sexo: sexo,
-    apodo: apodo,
+    tipodocumento: tipodocumento,
+    documento: documento,
     ocupacion: ocupacion,
-    lugartrabajo: lugartrabajo,
-    telefonoResidencial: telefonoResidencial,
+    telefonoresidencial: telefonoresidencial,
     celular: celular,
-    email: email,
-    direccionpersonal: direccionpersonal,
+    correo: correo,
+    direccion: direccion,
+    noedificio: noedificio,
+    nocasa: nocasa,
+    sector: sector,
+    municipio: municipio,
+    provincia: provincia,
     direccionfamiliar: direccionfamiliar,
+    cargotrabajo: cargotrabajo,
     direcciontrabajo: direcciontrabajo,
-    estatus: estatus,
+    fuenteingreso: fuenteingreso,
+    otrosingresos: otrosingresos,
+    poseeinmueble: poseeinmueble,
+    valorinmueble: valorinmueble,
+    poseevehiculo: poseevehiculo,
+    valorvehiculo: valorvehiculo,
+    monto: monto,
   };
   await SolicitudPersonaModel.findByIdAndUpdate(_id, sPersona);
   res.json(req.body);
@@ -92,7 +142,7 @@ export const editSolicitudPersona = async (req, res) => {
 
 //eliminar
 export const deleteSolicitudPersona = async (req, res) => {
-  const { _id } = req.body;
+  const { _id } = req.params;
   await SolicitudPersonaModel.findByIdAndDelete({ _id: _id });
   res.json(req.body);
 };

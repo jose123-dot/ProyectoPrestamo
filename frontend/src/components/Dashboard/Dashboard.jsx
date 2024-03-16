@@ -1,8 +1,9 @@
 import React from "react";
 import Menu from "../menu/menu.jsx";
 import Header from "../header/header.jsx";
-import Main from "../main/main.jsx";
-
+import Footer from "../footer/footer.jsx";
+/* import Main from "../Dashboard/Main.jsx";
+ */
 const Dashboard = () => {
   return (
     <>
@@ -10,7 +11,12 @@ const Dashboard = () => {
         <Menu></Menu>
         <div className="container-fluid page-body-wrapper">
           <Header></Header>
-          <Main></Main>
+          <div className="main-panel">
+            <div className="content-wrapper bg-dark">
+              {/* <Main></Main> */}
+              <Footer></Footer>
+            </div>
+          </div>
         </div>
       </div>
     </>
