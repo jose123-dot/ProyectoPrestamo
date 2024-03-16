@@ -108,18 +108,18 @@ const SolicitudPersonaSchema = new Schema(
       require: true,
     },
     valorinmueble: {
-      type: [Schema.Types.Decimal128],
+      type: Schema.Types.Decimal128,
     },
     poseevehiculo: {
       type: Boolean,
       require: true,
     },
     valorvehiculo: {
-      type: [Schema.Types.Decimal128],
+      type: Schema.Types.Decimal128,
     },
 
     monto: {
-      type: [Schema.Types.Decimal128],
+      type: Schema.Types.Decimal128,
     },
   },
   {
