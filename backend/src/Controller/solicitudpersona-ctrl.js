@@ -1,5 +1,6 @@
 import SolicitudPersonaModel from "../Model/solicitudpersona-model.js";
 
+
 //mostrar todo
 export const getSolicitudPersona = async (req, res) => {
   const SolicitudPersona = await SolicitudPersonaModel.find();
