@@ -5,12 +5,12 @@ const SolicitudPersonaSchema = new Schema(
     nombre: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     apellido: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     apodo: {
       type: String,
@@ -19,28 +19,28 @@ const SolicitudPersonaSchema = new Schema(
     nacionalidad: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     sexo: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     tipodocumento: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     documento: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
       unique: true,
     },
     ocupacion: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     telefonoresidencial: {
       type: String,
@@ -49,7 +49,7 @@ const SolicitudPersonaSchema = new Schema(
     celular: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     correo: {
       type: String,
@@ -59,7 +59,7 @@ const SolicitudPersonaSchema = new Schema(
     direccion: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     noedificio: {
       type: String,
@@ -76,12 +76,12 @@ const SolicitudPersonaSchema = new Schema(
     municipio: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     provincia: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     direccionfamiliar: {
       type: String,
@@ -97,22 +97,22 @@ const SolicitudPersonaSchema = new Schema(
     },
     fuenteingreso: {
       type: Schema.Types.Decimal128,
-      require: true,
+      required: true,
     },
     otrosingresos: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     poseeinmueble: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     valorinmueble: {
       type: Schema.Types.Decimal128,
     },
     poseevehiculo: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     valorvehiculo: {
       type: Schema.Types.Decimal128,

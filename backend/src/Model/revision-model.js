@@ -1,21 +1,27 @@
-import { Schema, model} from "mongoose";
+import mongoose, { Schema, model} from "mongoose";
 
 const RevisionSchema = new Schema(
   {
     estatusaprobacion: {
       type: String,
-      require: true,
+      required: true,
       max: 20,
     },
     usuario: {
-      type: [
+      type: 
         {
           ref: "user",
           type: Schema.ObjectId,
         }
-      ]
-    } 
+      
+    },
+    fecha:{
+      type: Date,
+      required: true
+    },
+   
   },
+ 
   {
     timestamps: true,
     versionKey: false

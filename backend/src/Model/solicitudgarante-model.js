@@ -5,12 +5,12 @@ const SolicitudGaranteSchema = new Schema(
     nombre: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     apellido: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     apodo: {
       type: String,
@@ -19,28 +19,28 @@ const SolicitudGaranteSchema = new Schema(
     nacionalidad: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     sexo: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     tipodocumento: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     documento: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
       unique: true,
     },
     ocupacion: {
       type: String,
       max: 40,
-      require: true,
+      required: true,
     },
     telefonoresidencial: {
       type: String,
@@ -49,7 +49,7 @@ const SolicitudGaranteSchema = new Schema(
     celular: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     correo: {
       type: String,
@@ -59,7 +59,7 @@ const SolicitudGaranteSchema = new Schema(
     direccion: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     noedificio: {
       type: String,
@@ -76,12 +76,12 @@ const SolicitudGaranteSchema = new Schema(
     municipio: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     provincia: {
       type: String,
       max: 30,
-      require: true,
+      required: true,
     },
     direccionfamiliar: {
       type: String,
@@ -89,7 +89,7 @@ const SolicitudGaranteSchema = new Schema(
     },
     trabajaactualmente: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     nombrelugartrabajo: {
       type: String,
@@ -105,18 +105,18 @@ const SolicitudGaranteSchema = new Schema(
     },
     ingresoprincipal: {
       type: Schema.Types.Decimal128,
-      require: true,
+      required: true,
     },
     poseeotrosingresos: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     otrosingresos: {
       type: Schema.Types.Decimal128,
     },
     poseeinmueble: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     tipoinmueble: {
       type: [String],
@@ -126,7 +126,7 @@ const SolicitudGaranteSchema = new Schema(
     },
     poseevehiculo: {
       type: Boolean,
-      require: true,
+      required: true,
     },
     tipovehiculo: {
       type: [String],

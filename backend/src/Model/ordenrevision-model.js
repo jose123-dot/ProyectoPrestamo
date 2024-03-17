@@ -4,32 +4,32 @@ const OrdenRevisionSchema = new Schema(
   {
     estatus: {
       type: String,
-      require: true,
+      required: true,
       max: 20,
     },
     solicitudpersona: {
-      type: [
+      type: 
         {
           ref: "solicitudpersona",
           type: Schema.ObjectId,
         }
-      ]
+      
     },
     solicitudempresa: {
-      type: [
+      type: 
         {
           ref: "solicitudempresa",
           type: Schema.ObjectId,
         }
-      ]
+      
     },
     usuario: {
-      type: [
+      type: 
         {
           ref: "user",
           type: Schema.ObjectId,
         }
-      ]
+      
     }
   },
   {
