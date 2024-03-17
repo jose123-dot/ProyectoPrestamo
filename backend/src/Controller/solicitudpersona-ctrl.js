@@ -1,5 +1,19 @@
 import SolicitudPersonaModel from "../Model/solicitudpersona-model.js";
+import multer from "multer";
+import path from "path";
 
+//multer config
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + path.extname(file.originalname));
+  },
+});
+
+export const upload = multer({ storage: storage });
+//fin de configuracion de multer
 
 //mostrar todo
 export const getSolicitudPersona = async (req, res) => {
@@ -22,15 +36,14 @@ export const saveSolicitudPersona = async (req, res) => {
     celular,
     correo,
     direccion,
-    noedificio,
-    nocasa,
+    noresidencia,
     sector,
     municipio,
     provincia,
     direccionfamiliar,
     cargotrabajo,
     direcciontrabajo,
-    fuenteingreso,
+    ingreso,
     otrosingresos,
     poseeinmueble,
     valorinmueble,
@@ -52,29 +65,29 @@ export const saveSolicitudPersona = async (req, res) => {
     celular: celular,
     correo: correo,
     direccion: direccion,
-    noedificio: noedificio,
-    nocasa: nocasa,
+    noresidencia: parseInt(noresidencia),
     sector: sector,
     municipio: municipio,
     provincia: provincia,
     direccionfamiliar: direccionfamiliar,
     cargotrabajo: cargotrabajo,
     direcciontrabajo: direcciontrabajo,
-    fuenteingreso: fuenteingreso,
+    ingreso: parseFloat(ingreso),
     otrosingresos: otrosingresos,
     poseeinmueble: poseeinmueble,
-    valorinmueble: valorinmueble,
+    valorinmueble: parseFloat(valorinmueble),
     poseevehiculo: poseevehiculo,
-    valorvehiculo: valorvehiculo,
-    monto: monto,
+    valorvehiculo: parseFloat(valorvehiculo),
+    monto: parseFloat(monto),
   };
+  req.files;
 
   await SolicitudPersonaModel.create(sPersona);
   res.send(sPersona);
 };
 
 //editar
-export const editSolicitudPersona = async (req, res) => {
+export const editSolicitudPersona = async (req, res, next) => {
   const {
     nombre,
     apellido,
@@ -88,15 +101,14 @@ export const editSolicitudPersona = async (req, res) => {
     celular,
     correo,
     direccion,
-    noedificio,
-    nocasa,
+    noresidencia,
     sector,
     municipio,
     provincia,
     direccionfamiliar,
     cargotrabajo,
     direcciontrabajo,
-    fuenteingreso,
+    ingreso,
     otrosingresos,
     poseeinmueble,
     valorinmueble,
@@ -120,15 +132,14 @@ export const editSolicitudPersona = async (req, res) => {
     celular: celular,
     correo: correo,
     direccion: direccion,
-    noedificio: noedificio,
-    nocasa: nocasa,
+    noresidencia: noresidencia,
     sector: sector,
     municipio: municipio,
     provincia: provincia,
     direccionfamiliar: direccionfamiliar,
     cargotrabajo: cargotrabajo,
     direcciontrabajo: direcciontrabajo,
-    fuenteingreso: fuenteingreso,
+    ingreso: ingreso,
     otrosingresos: otrosingresos,
     poseeinmueble: poseeinmueble,
     valorinmueble: valorinmueble,
@@ -136,6 +147,7 @@ export const editSolicitudPersona = async (req, res) => {
     valorvehiculo: valorvehiculo,
     monto: monto,
   };
+
   await SolicitudPersonaModel.findByIdAndUpdate(_id, sPersona);
   res.json(req.body);
 };

@@ -61,13 +61,9 @@ const SolicitudPersonaSchema = new Schema(
       max: 30,
       require: true,
     },
-    noedificio: {
+    noresidencia: {
       type: String,
-      max: 15,
-    },
-    nocasa: {
-      type: String,
-      max: 15,
+      max: 8,
     },
     sector: {
       type: String,
@@ -95,7 +91,7 @@ const SolicitudPersonaSchema = new Schema(
       type: String,
       max: 70,
     },
-    fuenteingreso: {
+    ingreso: {
       type: Schema.Types.Decimal128,
       require: true,
     },

@@ -1,5 +1,5 @@
 //importador libreria
-import express, { Router } from "express";
+import { Router } from "express";
 import * as solicitudPersonaCtrl from "../Controller/solicitudpersona-ctrl.js";
 import multer from "multer";
 const upload = multer({ dest: "uploads" });
@@ -15,15 +15,8 @@ SolicitudPersonaRouter.get("/", solicitudPersonaCtrl.getSolicitudPersona);
 
 SolicitudPersonaRouter.post(
   "/agregar",
+  solicitudPersonaCtrl.upload.array("documentos"),
   solicitudPersonaCtrl.saveSolicitudPersona
-);
-
-SolicitudPersonaRouter.post(
-  "/profile",
-  upload.array("documentos"),
-  function (req, res, next) {
-    req.files;
-  }
 );
 
 //editar
