@@ -21,7 +21,7 @@ app.use(morgan("dev"));
 //routes
 //app.use("/api/", authrouter);
 app.use("/api/solicitudpersona/", routerSolPersona);
-app.use("/api/solicitudempresa", routerSolEmpresa);
+app.use("/api/solicitudempresa/", routerSolEmpresa);
 
 // toca hacer los router de los demas
 app.listen(4000, () => console.log("Servidor ejecutado"));

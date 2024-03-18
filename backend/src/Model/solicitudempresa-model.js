@@ -97,6 +97,11 @@ estatus: {
     default: 'Pendiente'  
 },
 
-})
+}, 
+{
+    timestamps: true,
+    versionKey: false,
+  }
+);
 
 export default model("solicitudempresa", SolicitudEmpresaSchema)
