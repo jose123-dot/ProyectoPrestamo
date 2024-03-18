@@ -143,7 +143,7 @@ const SolicitudECreate = () => {
         </div>
         <div className="form-group row">
           <label htmlFor="exampleInputConfirmPassword2" className="col-sm-3 col-form-label">
-            Email
+           Correo Electronico
           </label>
           <div className="col-sm-9">
             <input
