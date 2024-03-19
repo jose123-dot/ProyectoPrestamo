@@ -334,7 +334,7 @@ const SolicitudECreate = () => {
           </label>
           <div className="col-sm-9">
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="exampleInputDireccionFamiliar"
               placeholder="Codigo"
