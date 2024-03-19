@@ -49,12 +49,12 @@ const Menu = () => {
                 </li>
                 <li className="nav-item">
                   {" "}
-                  <a
+                  <Link
                     className="nav-link"
-                    href="pages/ui-features/typography.html"
-                  >
+                    to="/solicitude">
+                  
                     Solicitud Empresa
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

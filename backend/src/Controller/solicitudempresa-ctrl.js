@@ -1,11 +1,25 @@
 import SolicitudEmpresaModel from "../Model/solicitudempresa-model.js";
+import multer from "multer";
+import path from "path";
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + path.extname(file.originalname));
+  },
+});
+
+export const upload = multer({ storage: storage });
+//fin de configuracion de multer
 //mostrar todo
 
 export const getSolicitudEmpresa = async (req, res) => {
   const SolicitudEmpresa = await SolicitudEmpresaModel.find();
   res.json(SolicitudEmpresa);
 };
+
 
 //agregar
 export const saveSolicitudEmpresa = async (req, res) => {
@@ -47,7 +61,7 @@ export const saveSolicitudEmpresa = async (req, res) => {
     codigo: codigo,
     estatus: estatus,
   };
-
+  req.files;
   await SolicitudEmpresaModel.create(sEmpresa);
   res.send(sEmpresa);
 };
