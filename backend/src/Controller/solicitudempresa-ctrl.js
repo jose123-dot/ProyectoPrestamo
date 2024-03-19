@@ -61,7 +61,7 @@ export const saveSolicitudEmpresa = async (req, res) => {
     codigo: codigo,
     estatus: estatus,
   };
-
+  req.files;
   await SolicitudEmpresaModel.create(sEmpresa);
   res.send(sEmpresa);
 };

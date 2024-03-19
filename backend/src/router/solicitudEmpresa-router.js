@@ -15,7 +15,7 @@ SolicitudEmpresaRouter.post(
 
 //editar
 SolicitudEmpresaRouter.put(
-  "/editar",
+  "/editar/:id",
   solicitudEmpresaCtrl.editSolicitudEmpresa
 );
 
