@@ -2,7 +2,8 @@
 import express, { Router } from "express";
 import * as solicitudEmpresaCtrl from "../Controller/solicitudempresa-ctrl.js";
 const SolicitudEmpresaRouter = Router();
-
+import multer from "multer";
+const upload = multer({ dest: "uploads" });
 //obtener
 SolicitudEmpresaRouter.get("/", solicitudEmpresaCtrl.getSolicitudEmpresa);
 
@@ -10,6 +11,7 @@ SolicitudEmpresaRouter.get("/", solicitudEmpresaCtrl.getSolicitudEmpresa);
 
 SolicitudEmpresaRouter.post(
   "/agregar",
+  solicitudEmpresaCtrl.upload.array("documentos"),
   solicitudEmpresaCtrl.saveSolicitudEmpresa
 );
 
