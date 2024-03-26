@@ -1,5 +1,5 @@
 //import React from "react";
 
-const solicitudPUpdate = () => {};
+const solicitudEUpdate = () => {};
 
-export default solicitudPUpdate;
+export default solicitudEUpdate;
