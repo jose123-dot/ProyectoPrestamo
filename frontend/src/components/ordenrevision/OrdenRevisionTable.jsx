@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import OrdenRevisionCreate from "../ordenrevision/OrdenRevisionCreate";
 import axios from "axios";
-const SolicitudETable = () => {
+const OrdenRevisionTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,40 +26,20 @@ const SolicitudETable = () => {
                   <tr>
                     <th>Solicitud Prestamo Persona</th>
                     <th>Solicitud Prestamo Empresa</th>
-                    <th>Fax</th>
-                    <th>Actividad</th>
-                    <th>Telefono</th>
-                    <th>Email</th>
-                    <th>Sitio Web</th>
-                    <th>Ingresos Anuales</th>
-                    <th>Pais Fundacion</th>
-                    <th>Fecha Fundacion</th>
-                    <th>Total Activos</th>
-                    <th>Codigo</th>
+                    <th>Usuario</th>
                     <th>Estatus</th>
+                    <th>Fecha</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((d, i) => (
                     <tr key={i}>
-                      <td>{d.nombre}</td>
-                      <td>{d.rnc}</td>
-                      <td>{d.fax}</td>
-                      <td>{d.actividad}</td>
-                      <td>{d.telefono}</td>
-                      <td>{d.email}</td>
-                      <td>{d.sitioweb}</td>
-                      <td>{d.ingresosanuales}</td>
-                      <td>{d.paisfundacion}</td>
-                      <td>{d.fechafundacion}</td>
-                      <td>{d.totalactivos}</td>
-                      <td>{d.direccion}</td>
-                      <td>{d.sector}</td>
-                      <td>{d.municipio}</td>
-                      <td>{d.provincia}</td>
-                      <td>{d.codigo}</td>
+                      <td>{d.solicitudpersona}</td>
+                      <td>{d.solicitudempresa}</td>
+                      <td>{d.usuario}</td>
                       <td>{d.estatus}</td>
+                      <td>{d.fecha}</td>
                       <td>
                         <button className="btn btn-success mr-2">Editar</button>
                         <button className="btn btn-danger">Eliminar</button>
@@ -76,4 +56,4 @@ const SolicitudETable = () => {
   );
 };
 
-export default SolicitudETable;
+export default OrdenRevisionTable;
