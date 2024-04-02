@@ -1,12 +1,12 @@
-import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest } from "../httpService/auth";
+import { createContext, useState, useContext, useEffect } from 'react';
+import { registerRequest, loginRequest } from '../httpService/auth';
 
 export const authContext = createContext();
 
 export const useAuth = () => {
   const context = useContext(authContext);
   if (!context) {
-    throw new Error("UseAuth must be used within an authprovider");
+    throw new Error('Error en Contexto');
   }
   return context;
 };
@@ -52,10 +52,6 @@ export const AuthProvider = ({ children }) => {
     }
   }, [errors]);
   return (
-    <authContext.Provider
-      value={{ user, signup, signin, isAuthenticated, errors }}
-    >
-      {children}
-    </authContext.Provider>
+    <authContext.Provider value={{ user, signup, signin, isAuthenticated, errors }}>{children}</authContext.Provider>
   );
 };
