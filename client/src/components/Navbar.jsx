@@ -9,26 +9,22 @@ export function Navbar() {
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
       <h1 className="text-2xl font-bold">
-        <Link to={isAuthenticated ? "/solicitudp" : "/"}>MAJOJOLEFA</Link>
+        <Link to={isAuthenticated ? "/tasks" : "/"}>MAJOJOLEFA</Link>
       </h1>
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
-            <li>Bienvenido {user.username}</li>
+            <li>Welcome {user.username}</li>
             <li>
-              <ButtonLink to="/solicitudp">
-                Solicitud Prestamo Personal
+              <ButtonLink to="/solicitudpersona">
+                Solicitar Prestamo Personal
               </ButtonLink>
             </li>
 
             <li>
-              <ButtonLink to="/solicitudp">
-                Solicitud Prestamo Empresa
+              <ButtonLink to="/solicitudpersona">
+                Solicitud Prestamo Empresarial
               </ButtonLink>
-            </li>
-
-            <li>
-              <ButtonLink to="/solicitudp">Solicitud Garante</ButtonLink>
             </li>
             <li>
               <Link to="/" onClick={() => logout()}>

@@ -17,7 +17,9 @@ export function LoginPage() {
   const { signin, errors: loginErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = (data) => signin(data);
+  const onSubmit = (data) => {
+    signin(data);
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -34,7 +36,7 @@ export function LoginPage() {
         <h1 className="text-2xl font-bold">Login</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="email">Email:</Label>
+          <Label htmlFor="email">Correo Electronico:</Label>
           <Input
             label="Write your email"
             type="email"
@@ -44,11 +46,11 @@ export function LoginPage() {
           />
           <p>{errors.email?.message}</p>
 
-          <Label htmlFor="password">Password:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
             name="password"
-            placeholder="Write your password"
+            placeholder="Escribe tu contraseña"
             {...register("password", { required: true, minLength: 6 })}
           />
           <p>{errors.password?.message}</p>
@@ -57,7 +59,7 @@ export function LoginPage() {
         </form>
 
         <p className="flex gap-x-2 justify-between">
-          no tienes Cuentas?{" "}
+          No Posees cuenta?{" "}
           <Link to="/register" className="text-sky-500">
             Registrarse
           </Link>

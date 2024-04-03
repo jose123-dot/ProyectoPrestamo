@@ -8,33 +8,27 @@ const OrdenRevisionSchema = new Schema(
       max: 20,
     },
     solicitudpersona: {
-      type: [
-        {
-          ref: "solicitudpersona",
-          type: Schema.ObjectId,
-        }
-      ]
+      type: {
+        ref: "solicitudpersona",
+        type: Schema.ObjectId,
+      },
     },
     solicitudempresa: {
-      type: [
-        {
-          ref: "solicitudempresa",
-          type: Schema.ObjectId,
-        }
-      ]
+      type: {
+        ref: "solicitudempresa",
+        type: Schema.ObjectId,
+      },
     },
     usuario: {
-      type: [
-        {
-          ref: "user",
-          type: Schema.ObjectId,
-        }
-      ]
-    }
+      type: {
+        ref: "user",
+        type: Schema.ObjectId,
+      },
+    },
   },
   {
     timestamps: true,
-    versionKey: false
+    versionKey: false,
   }
 );
 

@@ -38,64 +38,14 @@ export const saveSolicitudPersona = async (req, res) => {
 
 //editar
 export const editSolicitudPersona = async (req, res, next) => {
-  const {
-    nombre,
-    apellido,
-    apodo,
-    nacionalidad,
-    sexo,
-    tipodocumento,
-    documento,
-    ocupacion,
-    telefonoresidencial,
-    celular,
-    correo,
-    direccion,
-    noresidencia,
-    sector,
-    municipio,
-    provincia,
-    direccionfamiliar,
-    cargotrabajo,
-    direcciontrabajo,
-    ingreso,
-    otrosingresos,
-    poseeinmueble,
-    valorinmueble,
-    poseevehiculo,
-    valorvehiculo,
-    monto,
-  } = req.body;
+  const { usuario, fecha, monto } = req.body;
 
   const { _id } = req.params;
 
   const sPersona = {
-    nombre: nombre,
-    apellido: apellido,
-    apodo: apodo,
-    nacionalidad: nacionalidad,
-    sexo: sexo,
-    tipodocumento: tipodocumento,
-    documento: documento,
-    ocupacion: ocupacion,
-    telefonoresidencial: telefonoresidencial,
-    celular: celular,
-    correo: correo,
-    direccion: direccion,
-    noresidencia: noresidencia,
-    sector: sector,
-    municipio: municipio,
-    provincia: provincia,
-    direccionfamiliar: direccionfamiliar,
-    cargotrabajo: cargotrabajo,
-    direcciontrabajo: direcciontrabajo,
-    ingreso: ingreso,
-    otrosingresos: otrosingresos,
-    poseeinmueble: poseeinmueble,
-    valorinmueble: valorinmueble,
-    poseevehiculo: poseevehiculo,
-    valorvehiculo: valorvehiculo,
-    monto: monto,
+    usuario: usuario,
+    fecha: fecha,
+    monto: parseFloat(monto),
   };
 
   await SolicitudPersonaModel.findByIdAndUpdate(_id, sPersona);

@@ -3,12 +3,10 @@ import { Schema, model } from "mongoose";
 const EmpresaSchema = new Schema(
   {
     usuario: {
-      type: [
-        {
-          ref: "user",
-          type: Schema.ObjectId,
-        }
-      ]
+      type: {
+        ref: "user",
+        type: Schema.ObjectId,
+      },
     },
     nombre: {
       type: String,
@@ -53,29 +51,29 @@ const EmpresaSchema = new Schema(
     },
     sitioweb: {
       type: String,
-      max: 40
+      max: 40,
     },
     fechafundacion: {
       type: Date,
-      required: true
+      required: true,
     },
     paisfundacion: {
       type: String,
       required: true,
-      max: 20
+      max: 20,
     },
-    ingresosanuales:  {
+    ingresosanuales: {
       type: Schema.Types.Decimal128,
       required: true,
     },
-    totalactivos:{
+    totalactivos: {
       type: Schema.Types.Decimal128,
-      required: true,   
+      required: true,
     },
   },
   {
     timestamps: true,
-    versionKey: false
+    versionKey: false,
   }
 );
 
