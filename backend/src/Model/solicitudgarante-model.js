@@ -118,22 +118,28 @@ const SolicitudGaranteSchema = new Schema(
       type: Boolean,
       require: true,
     },
-    tipoinmueble: {
-      type: [String],
-    },
-    valorinmueble: {
-      type: [Schema.Types.Decimal128],
-    },
+    inmuebles: [{
+      tipoinmueble: {
+        type: String,
+        max: 50,
+      },
+      valorinmueble: {
+        type: Schema.Types.Decimal128,
+        required: true
+      }
+    }],
     poseevehiculo: {
       type: Boolean,
-      require: true,
     },
-    tipovehiculo: {
-      type: [String],
-    },
-    valorvehiculo: {
-      type: [Schema.Types.Decimal128],
-    }
+    vehiculos: [{
+      tipovehiculo: {
+        type: String,
+        max: 50,
+      },
+      valorvehiculo: {
+        type: Schema.Types.Decimal128,
+      }
+    }],
   },
   {
     timestamps: true,
