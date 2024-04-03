@@ -4,6 +4,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 
 import SolicitudPUpdate from "./components/solicitudP/SolicitudPUpdate";
 import SolicitudP from "./components/solicitudP/SolicitudP";
+import SolicitudE from "./components/solicitudE/SolicitudE";
+import SolicitudEUpdate from "./components/solicitudE/SolicitudEUpdate"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -19,6 +21,12 @@ function App() {
         <Route
           path="/solicitudp/editar/:id"
           Component={SolicitudPUpdate}
+        ></Route>
+         {/* //solicitudE */}
+         <Route path="/solicitude" Component={SolicitudE}></Route>
+        <Route
+          path="/solicitude/editar/:id"
+          Component={SolicitudEUpdate}
         ></Route>
       </Routes>
     </BrowserRouter>
