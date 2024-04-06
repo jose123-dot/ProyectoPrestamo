@@ -19,6 +19,7 @@ app.use(
   })
 );
 app.use(json());
+
 createRol();
 
 app.use(morgan("dev"));

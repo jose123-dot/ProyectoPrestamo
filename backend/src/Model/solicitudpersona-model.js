@@ -4,16 +4,20 @@ const SolicitudPersonaSchema = new Schema(
   {
     usuario: {
       type: Types.ObjectId,
-      ref: "users",
+      ref: "user",
       required: true,
     },
     fecha: {
       type: Date,
       required: true,
+      default: Date.now,
     },
     monto: {
       type: Number,
-      max: 30,
+    },
+    estatus: {
+      type: String,
+      default: "pendiente",
     },
   },
   {

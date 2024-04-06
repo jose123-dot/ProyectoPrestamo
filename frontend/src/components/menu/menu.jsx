@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   return (
@@ -25,40 +25,7 @@ const Menu = () => {
               <span className="menu-title">Dashboard</span>
             </Link>
           </li>
-          <li className="nav-item menu-items">
-            <a
-              className="nav-link"
-              data-toggle="collapse"
-              href="#ui-basic"
-              aria-expanded="false"
-              aria-controls="ui-basic"
-            >
-              <span className="menu-icon">
-                <i className="mdi mdi-laptop"></i>
-              </span>
-              <span className="menu-title">Gestion Solicitudes</span>
-              <i className="menu-arrow"></i>
-            </a>
-            <div className="collapse" id="ui-basic">
-              <ul className="nav flex-column sub-menu">
-                <li className="nav-item">
-                  {" "}
-                  <Link className="nav-link" to="/solicitudp">
-                    Solicitud Persona
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  {" "}
-                  <Link
-                    className="nav-link"
-                    to="/solicitude">
-                  
-                    Solicitud Empresa
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
+
           <li className="nav-item menu-items">
             <a className="nav-link" href="pages/forms/basic_elements.html">
               <span className="menu-icon">

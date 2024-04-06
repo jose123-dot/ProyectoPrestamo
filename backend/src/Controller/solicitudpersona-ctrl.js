@@ -17,7 +17,10 @@ export const upload = multer({ storage: storage });
 
 //mostrar todo
 export const getSolicitudPersona = async (req, res) => {
-  const SolicitudPersona = await SolicitudPersonaModel.find();
+  const SolicitudPersona = await SolicitudPersonaModel.find().populate({
+    path: "usuario",
+    select: "username",
+  });
   res.json(SolicitudPersona);
 };
 
@@ -27,7 +30,6 @@ export const saveSolicitudPersona = async (req, res) => {
 
   const sPersona = {
     usuario: usuario,
-    fecha: fecha,
     monto: parseFloat(monto),
   };
   req.files;

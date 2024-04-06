@@ -6,6 +6,7 @@ const OrdenRevisionSchema = new Schema(
       type: String,
       require: true,
       max: 20,
+      default: "pendiente",
     },
     solicitudpersona: {
       type: {
@@ -18,6 +19,10 @@ const OrdenRevisionSchema = new Schema(
         ref: "solicitudempresa",
         type: Schema.ObjectId,
       },
+    },
+    fecha: {
+      type: Date,
+      default: Date.now,
     },
     usuario: {
       type: {

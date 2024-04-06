@@ -46,12 +46,22 @@ export const registerSchema = z
     direccionfamiliar: z.string().max(70).optional(),
     cargotrabajo: z.string().max(40).optional(),
     direcciontrabajo: z.string().max(70).optional(),
-    ingreso: z.number().min(0).optional(),
+    ingreso: z
+      .number()
+      .min(0, {
+        message: "Por ingrese el valor del vehiculo",
+      })
+      .optional(),
     otrosingresos: z.boolean().optional(),
     poseeinmueble: z.boolean().optional(),
     valorinmueble: z.number().min(0).optional(),
     poseevehiculo: z.boolean().optional(),
-    valorvehiculo: z.number().min(0).optional(),
+    valorvehiculo: z
+      .number()
+      .min(0, {
+        message: "Por ingrese el valor del vehiculo",
+      })
+      .optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",

@@ -79,7 +79,7 @@ const SolicitupP = () => {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/solicitudpersona/agregar", formData)
+      .post("http://localhost:4000/api/auth/signup", formData)
       .then((res) => {
         alert("se ha Insertado Correctamente!");
         navegate("/");

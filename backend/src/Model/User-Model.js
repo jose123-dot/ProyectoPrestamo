@@ -41,7 +41,7 @@ const UserSchema = new Schema(
     tipodocumento: {
       type: String,
       max: 20,
-      require: true,
+      required: true,
     },
     documento: {
       type: String,
@@ -62,11 +62,6 @@ const UserSchema = new Schema(
       type: String,
       max: 20,
       require: true,
-    },
-    correo: {
-      type: String,
-      max: 50,
-      unique: true,
     },
     direccion: {
       type: String,

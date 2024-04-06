@@ -15,7 +15,6 @@ SolicitudPersonaRouter.get("/", solicitudPersonaCtrl.getSolicitudPersona);
 
 SolicitudPersonaRouter.post(
   "/agregar",
-  solicitudPersonaCtrl.upload.array("documentos"),
   solicitudPersonaCtrl.saveSolicitudPersona
 );
 
