@@ -1,4 +1,4 @@
-import Users from "../Model/User-Model.js";
+import Users from "../Model/User-Client.js";
 import modelroles from "../Model/roles-model.js";
 
 import jwt from "jsonwebtoken";
@@ -33,6 +33,18 @@ export const signup = async (req, res) => {
     valorinmueble,
     poseevehiculo,
     valorvehiculo,
+    nombreEmpresa,
+    direccionEmpresa,
+    RNC,
+    telefonoEmpresa,
+    correoEmpresa,
+    fax,
+    actividad,
+    sitioweb,
+    fechafundacion,
+    paisfundacion,
+    ingresosanuales,
+    totalactivos,
   } = req.body;
 
   const newUser = new Users({
@@ -63,6 +75,18 @@ export const signup = async (req, res) => {
     valorinmueble: valorinmueble,
     poseevehiculo: poseevehiculo,
     valorvehiculo: valorvehiculo,
+    nombreEmpresa: nombreEmpresa,
+    direccionEmpresa: direccionEmpresa,
+    RNC: RNC,
+    telefonoEmpresa: telefonoEmpresa,
+    correoEmpresa: correoEmpresa,
+    fax: fax,
+    actividad: actividad,
+    sitioweb: sitioweb,
+    fechafundacion: fechafundacion,
+    paisfundacion: paisfundacion,
+    ingresosanuales: ingresosanuales,
+    totalactivos: totalactivos,
   });
 
   //verfica la existencia de roles
@@ -75,12 +99,16 @@ export const signup = async (req, res) => {
   }
 
   //guardar token
-  const saveUser = await Users.create(newUser);
-  console.log(saveUser);
-  const token = jwt.sign({ id: saveUser._id }, config.SECRET, {
-    expiresIn: 86400,
-  });
-  res.status(200).json({ token });
+  try {
+    const saveUser = await Users.create(newUser);
+    console.log(saveUser);
+    const token = jwt.sign({ id: saveUser._id }, config.SECRET, {
+      expiresIn: 86400,
+    });
+    res.status(200).json({ token });
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 //iniciar session

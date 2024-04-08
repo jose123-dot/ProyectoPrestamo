@@ -2,9 +2,6 @@ import { z } from "zod";
 
 //validacion para registrase
 export const registerSchema = z.object({
-  username: z.string({
-    required_error: "Usuario Incorrecto",
-  }),
   email: z.string({
     required_error: "Email Incorrecto",
   }),

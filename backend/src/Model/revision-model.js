@@ -6,10 +6,11 @@ const RevisionSchema = new Schema(
       type: String,
       required: true,
       max: 20,
+      default: "pendiente",
     },
     usuario: {
       type: {
-        ref: "user",
+        ref: "User-admin",
         type: Schema.ObjectId,
       },
     },

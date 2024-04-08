@@ -15,6 +15,15 @@ const SolicitudPersonaSchema = new Schema(
     monto: {
       type: Number,
     },
+
+    tasainteres: {
+      type: Types.Decimal128,
+      required: true,
+    },
+    duracionMeses: {
+      type: Number,
+      required: true,
+    },
     estatus: {
       type: String,
       default: "pendiente",

@@ -1,17 +1,17 @@
 const { Schema } = mongoose;
 
 const ContratoSchema = new Schema({
-  idusuario: {
+  usuario: {
     type: Schema.Types.ObjectId,
     ref: "idusuario",
   },
 
-  idrevisionsolicitud: {
+  revisionsolicitud: {
     type: Schema.Types.ObjectId,
     ref: "idrevisionsolicitud",
   },
 
-  idmetodopago: {
+  metodopago: {
     type: Schema.Types.ObjectId,
     ref: "idmetodopago",
   },

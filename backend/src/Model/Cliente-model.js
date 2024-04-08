@@ -1,11 +1,7 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";
-const UserSchema = new Schema(
+const ClienteSchema = new Schema(
   {
-    username: {
-      type: String,
-      unique: true,
-    },
     email: {
       type: String,
       unique: true,
@@ -120,14 +116,62 @@ const UserSchema = new Schema(
     valorvehiculo: {
       type: Number,
     },
-
-    roles: {
-      type: [
-        {
-          ref: "roles",
-          type: Schema.ObjectId,
-        },
-      ],
+    nombreEmpresa: {
+      type: String,
+      max: 50,
+      require: true,
+    },
+    direccionEmpresa: {
+      type: String,
+      max: 50,
+      require: true,
+    },
+    RNC: {
+      type: String,
+      max: 15,
+      require: true,
+    },
+    telefonoEmpresa: {
+      type: String,
+      max: 15,
+      require: true,
+    },
+    correoEmpresa: {
+      type: String,
+      max: 50,
+      require: true,
+    },
+    fax: {
+      type: String,
+      unique: true,
+      max: 25,
+      required: true,
+    },
+    actividad: {
+      type: String,
+      max: 40,
+      required: true,
+    },
+    sitioweb: {
+      type: String,
+      max: 40,
+    },
+    fechafundacion: {
+      type: Date,
+      required: true,
+    },
+    paisfundacion: {
+      type: String,
+      required: true,
+      max: 20,
+    },
+    ingresosanuales: {
+      type: Schema.Types.Decimal128,
+      required: true,
+    },
+    totalactivos: {
+      type: Schema.Types.Decimal128,
+      required: true,
     },
   },
   {
@@ -136,14 +180,4 @@ const UserSchema = new Schema(
   }
 );
 
-//encriptar contraseña
-UserSchema.statics.encryptPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  return await bcrypt.hash(password, salt);
-};
-//compara las password
-UserSchema.statics.comparepassword = async (password, receivedPassword) => {
-  return await bcrypt.compare(password, receivedPassword);
-};
-
-export default model("user", UserSchema);
+export default model("cliente", ClienteSchema);

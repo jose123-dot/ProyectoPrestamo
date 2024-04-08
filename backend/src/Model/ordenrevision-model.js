@@ -4,7 +4,7 @@ const OrdenRevisionSchema = new Schema(
   {
     estatus: {
       type: String,
-      require: true,
+      required: true,
       max: 20,
       default: "pendiente",
     },

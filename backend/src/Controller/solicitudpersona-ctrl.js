@@ -1,19 +1,4 @@
 import SolicitudPersonaModel from "../Model/solicitudpersona-model.js";
-import multer from "multer";
-import path from "path";
-
-//multer config
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + path.extname(file.originalname));
-  },
-});
-
-export const upload = multer({ storage: storage });
-//fin de configuracion de multer
 
 //mostrar todo
 export const getSolicitudPersona = async (req, res) => {
@@ -26,7 +11,7 @@ export const getSolicitudPersona = async (req, res) => {
 
 //agregar
 export const saveSolicitudPersona = async (req, res) => {
-  const { usuario, fecha, monto } = req.body;
+  const { usuario, monto } = req.body;
 
   const sPersona = {
     usuario: usuario,
