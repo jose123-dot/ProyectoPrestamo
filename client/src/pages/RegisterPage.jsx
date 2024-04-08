@@ -5,9 +5,8 @@ import Dropzone from "react-dropzone";
 
 function Register() {
   const [inputData, setInputData] = useState({
-    username: "",
-    password: "",
     email: "",
+    password: "",
     nombre: "",
     apellido: "",
     apodo: "",
@@ -27,13 +26,13 @@ function Register() {
     direccionfamiliar: "",
     cargotrabajo: "",
     direcciontrabajo: "",
-    ingreso: 0.0,
+    ingreso: "",
     otrosingresos: false,
     poseeinmueble: false,
-    valorinmueble: 0.0,
+    valorinmueble: "",
     poseevehiculo: false,
-    valorvehiculo: 0.0,
-    monto: 0.0,
+    valorvehiculo: "",
+    monto: "",
     archivos: [],
   });
   const [archivos, setarchivos] = useState([]);
@@ -45,7 +44,7 @@ function Register() {
   for (const key in inputData) {
     formData.append(key, inputData[key]);
   }
-  archivos.forEach((file) => formData.append("documentos", file));
+  archivos.forEach((file) => formData.append("archivos", file));
 
   //arrastrar elemento
   const onDrop = (acceptedFiles) => {
@@ -83,7 +82,7 @@ function Register() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/solicitudpersona/agregar", formData)
+      .post("http://localhost:4000/api/signup", formData)
       .then((res) => {
         alert("se ha Insertado Correctamente!");
         navegate("/");
@@ -102,22 +101,21 @@ function Register() {
             htmlFor="exampleInputConfirmPassword2"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Nombre de Usuario
+            Correo Electronico
           </label>
           <div className="col-sm-9">
             <input
-              type="text"
+              type="email"
               className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               id="exampleInputConfirmPassword2"
-              placeholder="Nombre de Usuario"
-              value={inputData.username}
+              placeholder="Correo Electronico"
+              value={inputData.correo}
               onChange={(e) =>
-                setInputData({ ...inputData, usuario: e.target.value })
+                setInputData({ ...inputData, correo: e.target.value })
               }
             />
           </div>
         </div>
-
         <div className="mb-5">
           <label
             htmlFor="exampleInputConfirmPassword2"
@@ -134,27 +132,6 @@ function Register() {
               value={inputData.password}
               onChange={(e) =>
                 setInputData({ ...inputData, password: e.target.value })
-              }
-            />
-          </div>
-        </div>
-
-        <div className="mb-5">
-          <label
-            htmlFor="exampleInputConfirmPassword2"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Correo Electronico
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="email"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              id="exampleInputConfirmPassword2"
-              placeholder="Correo Electronico"
-              value={inputData.correo}
-              onChange={(e) =>
-                setInputData({ ...inputData, correo: e.target.value })
               }
             />
           </div>
@@ -456,8 +433,8 @@ function Register() {
               className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">-- Seleccionar Municipio --</option>
-              {municipios.map((municipio) => (
-                <option key={municipio.id} value={municipio.id}>
+              {municipios.map((municipio, index) => (
+                <option key={index} value={municipio.id}>
                   {municipio.name}
                 </option>
               ))}
@@ -473,8 +450,8 @@ function Register() {
               className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="">-- Seleccionar provincia --</option>
-              {provinces.map((province) => (
-                <option key={province.id} value={province.id}>
+              {provinces.map((province, index) => (
+                <option key={index} value={province.id}>
                   {province.name}
                 </option>
               ))}

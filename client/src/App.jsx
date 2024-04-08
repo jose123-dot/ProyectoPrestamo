@@ -1,15 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { AuthProvider } from "./context/authContext";
-import { ProtectedRoute } from "./routes";
 
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
-import { TaskFormPage } from "./pages/TaskFormPage";
+
 import { LoginPage } from "./pages/LoginPage";
 import { TasksPage } from "./pages/TasksPage";
 import { TaskProvider } from "./context/tasksContext";
-import SolicitupP from "./pages/SolicitudPersona";
 function App() {
   return (
     <AuthProvider>
@@ -21,9 +19,6 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route element={<ProtectedRoute />}>
-                <Route path="/solicitudpersona" element={<SolicitupP />} />
-              </Route>
             </Routes>
           </main>
         </BrowserRouter>

@@ -119,38 +119,31 @@ const UserSchema = new Schema(
     nombreEmpresa: {
       type: String,
       max: 50,
-      required: true,
     },
     direccionEmpresa: {
       type: String,
       max: 50,
-      required: true,
     },
     RNC: {
       type: String,
       max: 15,
-      required: true,
     },
     telefonoEmpresa: {
       type: String,
       max: 15,
-      require: true,
     },
     correoEmpresa: {
       type: String,
       max: 50,
-      require: true,
     },
     fax: {
       type: String,
       unique: true,
       max: 25,
-      required: true,
     },
     actividad: {
       type: String,
       max: 40,
-      required: true,
     },
     sitioweb: {
       type: String,
@@ -158,20 +151,17 @@ const UserSchema = new Schema(
     },
     fechafundacion: {
       type: Date,
-      required: true,
     },
     paisfundacion: {
       type: String,
-      required: true,
+
       max: 20,
     },
     ingresosanuales: {
       type: Schema.Types.Decimal128,
-      required: true,
     },
     totalactivos: {
       type: Schema.Types.Decimal128,
-      required: true,
     },
 
     roles: {

@@ -9,12 +9,12 @@ export function Navbar() {
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
       <h1 className="text-2xl font-bold">
-        <Link to={isAuthenticated ? "/tasks" : "/"}>MAJOJOLEFA</Link>
+        <Link to={isAuthenticated ? "/" : "/"}>MAJOJOLEFA</Link>
       </h1>
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
-            <li>Welcome {user.username}</li>
+            <li>Bienvenido {`${user.nombre} ${user.apellido} `}</li>
             <li>
               <ButtonLink to="/solicitudpersona">
                 Solicitar Prestamo Personal
