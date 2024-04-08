@@ -33,6 +33,19 @@ function Register() {
     poseevehiculo: false,
     valorvehiculo: "",
     monto: "",
+    poseeempresa: false,
+    nombreEmpresa: "",
+    direccionEmpresa: "",
+    RNC: "",
+    telefonoEmpresa: "",
+    correoEmpresa: "",
+    fax: "",
+    actividad: "",
+    sitioweb: "",
+    fechafundacion: "",
+    paisfundacion: "",
+    ingresosanuales: "",
+    totalactivos: "",
     archivos: [],
   });
   const [archivos, setarchivos] = useState([]);
@@ -576,99 +589,113 @@ function Register() {
             </select>
           </div>
         </div>
-        <div className="mb-5">
-          <label
-            htmlFor="exampleInputPoseeInmueble"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Posee Inmueble
-          </label>
-          <div className="col-sm-9">
-            <select
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              id="exampleInputPoseeInmueble"
-              value={inputData.tipodocumento}
-              onChange={(e) =>
-                setInputData({
-                  ...inputData,
-                  poseeinmueble: e.target.value === "true",
-                })
-              }
+        <div>
+          <div className="mb-5">
+            <label
+              htmlFor="exampleInputPoseeInmueble"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              <option value="true">Si</option>
-              <option value="false">No</option>
-            </select>
+              Posee Inmueble?
+            </label>
+            <div className="col-sm-9">
+              <select
+                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                id="exampleInputPoseeInmueble"
+                value={inputData.poseeinmueble}
+                onChange={(e) =>
+                  setInputData({
+                    ...inputData,
+                    poseeinmueble: e.target.value === "true",
+                    valorinmueble:
+                      e.target.value === "false" ? "" : inputData.valorinmueble, // Limpiar el valor del inmueble si selecciona "No"
+                  })
+                }
+              >
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </select>
+            </div>
           </div>
+
+          {inputData.poseeinmueble && (
+            <div className="mb-5">
+              <label
+                htmlFor="exampleInputValorInmueble"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Valor del Inmueble
+              </label>
+              <div className="col-sm-9">
+                <input
+                  type="number"
+                  className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="exampleInputValorInmueble"
+                  placeholder="Valor del Inmueble"
+                  value={inputData.valorinmueble}
+                  onChange={(e) =>
+                    setInputData({
+                      ...inputData,
+                      valorinmueble: parseFloat(e.target.value),
+                    })
+                  }
+                />
+              </div>
+            </div>
+          )}
         </div>
-        <div className="mb-5">
-          <label
-            htmlFor="exampleInputValorInmueble"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Valor del Inmueble
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="number"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              id="exampleInputValorInmueble"
-              placeholder="Valor del Inmueble"
-              value={inputData.valorinmueble}
-              onChange={(e) =>
-                setInputData({
-                  ...inputData,
-                  valorinmueble: parseFloat(e.target.value),
-                })
-              }
-            />
-          </div>
-        </div>
-        <div className="mb-5">
-          <label
-            htmlFor="exampleInputPoseeVehiculo"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Posee Vehículo
-          </label>
-          <div className="col-sm-9">
-            <select
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              id="exampleInputPoseeVehiculo"
-              value={inputData.poseevehiculo}
-              onChange={(e) =>
-                setInputData({
-                  ...inputData,
-                  poseevehiculo: e.target.value === "true",
-                })
-              }
+        <div>
+          <div className="mb-5">
+            <label
+              htmlFor="exampleInputPoseeVehiculo"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              <option value="true">Sí</option>
-              <option value="false">No</option>
-            </select>
+              Posee Vehículo?
+            </label>
+            <div className="col-sm-9">
+              <select
+                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                id="exampleInputPoseeVehiculo"
+                value={inputData.poseevehiculo}
+                onChange={(e) =>
+                  setInputData({
+                    ...inputData,
+                    poseevehiculo: e.target.value === "true",
+                    valorvehiculo:
+                      e.target.value === "false" ? "" : inputData.valorvehiculo, // Limpiar el valor del vehículo si selecciona "No"
+                  })
+                }
+              >
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className="mb-5">
-          <label
-            htmlFor="exampleInputValorVehiculo"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Valor del Vehículo
-          </label>
-          <div className="col-sm-9">
-            <input
-              type="number"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              id="exampleInputValorVehiculo"
-              placeholder="Valor del Vehículo"
-              value={inputData.valorvehiculo}
-              onChange={(e) =>
-                setInputData({
-                  ...inputData,
-                  valorvehiculo: parseFloat(e.target.value),
-                })
-              }
-            />
-          </div>
+
+          {inputData.poseevehiculo && (
+            <div className="mb-5">
+              <label
+                htmlFor="exampleInputValorVehiculo"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Valor del Vehículo
+              </label>
+              <div className="col-sm-9">
+                <input
+                  type="number"
+                  className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="exampleInputValorVehiculo"
+                  placeholder="Valor del Vehículo"
+                  value={inputData.valorvehiculo}
+                  onChange={(e) =>
+                    setInputData({
+                      ...inputData,
+                      valorvehiculo: parseFloat(e.target.value),
+                    })
+                  }
+                />
+              </div>
+            </div>
+          )}
         </div>
         <div className="mb-5">
           <label
@@ -692,12 +719,366 @@ function Register() {
               }
             />
           </div>
+          <div>
+            <div className="mb-5">
+              <label
+                htmlFor="exampleInputPoseeEmpresa"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                ¿Posee Empresa?
+              </label>
+              <div className="col-sm-9">
+                <select
+                  className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="exampleInputPoseeEmpresa"
+                  value={inputData.poseeempresa}
+                  onChange={(e) =>
+                    setInputData({
+                      ...inputData,
+                      poseeempresa: e.target.value === "true",
+                      nombreEmpresa:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.nombreEmpresa,
+                      direccionEmpresa:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.direccionEmpresa,
+                      RNC: e.target.value === "false" ? "" : inputData.RNC,
+                      telefonoEmpresa:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.telefonoEmpresa,
+                      correoEmpresa:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.correoEmpresa,
+                      fax: e.target.value === "false" ? "" : inputData.fax,
+                      actividad:
+                        e.target.value === "false" ? "" : inputData.actividad,
+                      sitioweb:
+                        e.target.value === "false" ? "" : inputData.sitioweb,
+                      fechafundacion:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.fechafundacion,
+                      paisfundacion:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.paisfundacion,
+                      ingresosanuales:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.ingresosanuales,
+                      totalactivos:
+                        e.target.value === "false"
+                          ? ""
+                          : inputData.totalactivos,
+                    })
+                  }
+                >
+                  <option value="true">Sí</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+
+            {inputData.poseeempresa && (
+              <>
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputNombreEmpresa"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Nombre de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputNombreEmpresa"
+                      placeholder="Nombre de la Empresa"
+                      value={inputData.nombreEmpresa}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          nombreEmpresa: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputDireccionEmpresa"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Dirección de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputDireccionEmpresa"
+                      placeholder="Dirección de la Empresa"
+                      value={inputData.direccionEmpresa}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          direccionEmpresa: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputRNC"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    RNC (Registro Nacional de Contribuyentes)
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputRNC"
+                      placeholder="RNC (Registro Nacional de Contribuyentes)"
+                      value={inputData.RNC}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          RNC: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputTelefonoEmpresa"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Teléfono de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputTelefonoEmpresa"
+                      placeholder="Teléfono de la Empresa"
+                      value={inputData.telefonoEmpresa}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          telefonoEmpresa: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputCorreoEmpresa"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Correo Electrónico de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="email"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputCorreoEmpresa"
+                      placeholder="Correo Electrónico de la Empresa"
+                      value={inputData.correoEmpresa}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          correoEmpresa: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputFax"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Fax de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputFax"
+                      placeholder="Fax de la Empresa"
+                      value={inputData.fax}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          fax: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputActividad"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Actividad de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputActividad"
+                      placeholder="Actividad de la Empresa"
+                      value={inputData.actividad}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          actividad: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputSitioWeb"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Sitio Web de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="url"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputSitioWeb"
+                      placeholder="Sitio Web de la Empresa"
+                      value={inputData.sitioweb}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          sitioweb: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputFechaFundacion"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Fecha de Fundación de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="date"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputFechaFundacion"
+                      placeholder="Fecha de Fundación de la Empresa"
+                      value={inputData.fechafundacion}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          fechafundacion: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputPaisFundacion"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    País de Fundación de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputPaisFundacion"
+                      placeholder="País de Fundación de la Empresa"
+                      value={inputData.paisfundacion}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          paisfundacion: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputIngresosAnuales"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Ingresos Anuales de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputIngresosAnuales"
+                      placeholder="Ingresos Anuales de la Empresa"
+                      value={inputData.ingresosanuales}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          ingresosanuales: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="exampleInputTotalActivos"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Total de Activos de la Empresa
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      id="exampleInputTotalActivos"
+                      placeholder="Total de Activos de la Empresa"
+                      value={inputData.totalactivos}
+                      onChange={(e) =>
+                        setInputData({
+                          ...inputData,
+                          totalactivos: parseFloat(e.target.value),
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                {/* */}
+              </>
+            )}
+          </div>
           <br></br>
           <br></br>
           <p className="text-blue-500">Documento de Indentidad*</p>
           <p className="text-blue-500">Carta de trabajo*</p>
           <p className="text-blue-500">Titulo*</p>
-          <p className="text-blue-500">Matricula*</p>
+          <p className="text-blue-500">Matricula si Posee Vehiculo*</p>
           <br></br>
           <Dropzone onDrop={onDrop}>
             {({ getRootProps, getInputProps }) => (
