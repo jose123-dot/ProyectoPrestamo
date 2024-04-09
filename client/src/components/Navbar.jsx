@@ -14,31 +14,28 @@ export function Navbar() {
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
           <>
-            <li>Bienvenido {`${user.nombre} ${user.apellido} `}</li>
+            <li>{`${user.nombre} ${user.apellido} `}</li>
             <li>
-              <ButtonLink to="/solicitudpersona">
-                Solicitar Prestamo Personal
-              </ButtonLink>
+              <ButtonLink to="/solicitudpersona">Solicitar Prestamo</ButtonLink>
             </li>
 
             <li>
-              <ButtonLink to="/solicitudpersona">
-                Solicitud Prestamo Empresarial
-              </ButtonLink>
-            </li>
-            <li>
-              <Link to="/" onClick={() => logout()}>
-                Logout
+              <Link
+                className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                to="/"
+                onClick={() => logout()}
+              >
+                Cerrar Sesion
               </Link>
             </li>
           </>
         ) : (
           <>
             <li>
-              <ButtonLink to="/login">Login</ButtonLink>
+              <ButtonLink to="/login">Iniciar Sesion</ButtonLink>
             </li>
             <li>
-              <ButtonLink to="/register">Register</ButtonLink>
+              <ButtonLink to="/register">Registrarse</ButtonLink>
             </li>
           </>
         )}
