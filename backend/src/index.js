@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import routerSolEmpresa from "./router/solicitudEmpresa-router.js";
 import routerSolPersona from "./router/solicitudPersona-router.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(
   })
 );
 app.use(json());
+app.use(cookieParser());
 
 createRol();
 
