@@ -4,6 +4,9 @@ import Login from "./page/login/login";
 import OrdenRevision from "./page/OrdenRevision/ordenrevision";
 import Revision from "./page/revision/revision";
 import MetodoPago from "./page/metodopago/metodopago";
+
+import Contrato from "./page/contrato/contrato";
+import Cliente from "./page/cliente/cliente";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 function App() {
@@ -14,6 +17,8 @@ function App() {
         <Route path="/ordenrevision" element={<OrdenRevision />}></Route>
         <Route path="/revision" element={<Revision />}></Route>
         <Route path="/metodopago" element={<MetodoPago />}></Route>
+        <Route path="/contrato" element={<Contrato />}></Route>
+        <Route path="/cliente" element={<Cliente />}></Route>
       </Routes>
     </BrowserRouter>
   );

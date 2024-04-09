@@ -38,9 +38,9 @@ const OrdenRevision = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Jose Maria Suero Cuevas</td>
+                <td>09-04-2024</td>
+                <td>45,66767</td>
                 <td>
                   <Button variant="success" onClick={handleShow}>
                     Ordenar Revision
@@ -61,10 +61,7 @@ const OrdenRevision = () => {
         <Modal.Header closeButton>
           <Modal.Title>Ordenar Revision</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Do not even try to press
-          escape key.
-        </Modal.Body>
+        <Modal.Body>Ordenando Orden Revision</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar

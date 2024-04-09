@@ -37,9 +37,9 @@ const Revision = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Jose Maria</td>
+                <td>Jose Maria Suero Cuevas</td>
+                <td>09-04-2024</td>
                 <td>
                   <Button variant="success" onClick={handleShow}>
                     Aprobar Solicitud

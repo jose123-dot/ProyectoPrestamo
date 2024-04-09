@@ -42,7 +42,7 @@ const MetodoPago = () => {
             </thead>
             <tbody>
               <tr>
-                <td>@mdo</td>
+                <td>Deposito</td>
                 <td>
                   <Button variant="success">Editar</Button>
                 </td>

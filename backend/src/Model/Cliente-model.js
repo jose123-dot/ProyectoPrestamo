@@ -2,14 +2,6 @@ import { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";
 const ClienteSchema = new Schema(
   {
-    email: {
-      type: String,
-      unique: true,
-    },
-
-    password: {
-      type: String,
-    },
     nombre: {
       type: String,
       max: 40,
