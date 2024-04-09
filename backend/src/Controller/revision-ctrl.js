@@ -6,40 +6,45 @@ export const getRevision = async (req, res) => {
 };
 
 export const saveRevision = async (req, res) => {
-  const {
-    estatusaprobacion,
-    usuario,
-  } = req.body;
+  try {
+    const { estatusaprobacion, usuario } = req.body;
 
-  const revision =  {
-    estatusaprobacion: estatusaprobacion,
-    usuario: usuario,
-  };
+    const revision = {
+      estatusaprobacion: estatusaprobacion,
+      usuario: usuario,
+    };
 
-  await RevisionModel.create(revision);
-  res.send(revision);
+    await RevisionModel.create(revision);
+    res.send(revision);
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 export const editRevision = async (req, res) => {
-  const {
-    estatusaprobacion,
-    usuario,
-  } = req.body;
+  const { estatusaprobacion, usuario } = req.body;
 
   const { _id } = req.params;
 
-  const revision =  {
+  const revision = {
     estatusaprobacion: estatusaprobacion,
     usuario: usuario,
   };
-
-  await RevisionModel.findByIdAndUpdate(_id, revision)
-  res.json(req.body);
+  try {
+    await RevisionModel.findByIdAndUpdate(_id, revision);
+    res.json(req.body);
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 export const deleteRevision = async (req, res) => {
   const { _id } = req.params;
 
-  await RevisionModel.findByIdAndDelete({ _id: _id});
-  res.json(req.body);
-}
+  try {
+    await RevisionModel.findByIdAndDelete({ _id: _id });
+    res.json(req.body);
+  } catch (error) {
+    res.send(error);
+  }
+};

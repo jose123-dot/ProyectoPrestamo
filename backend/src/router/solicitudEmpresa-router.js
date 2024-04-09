@@ -1,7 +1,9 @@
 //importador libreria
-import express, { Router } from "express";
+import { Router } from "express";
 import * as solicitudEmpresaCtrl from "../Controller/solicitudempresa-ctrl.js";
 const SolicitudEmpresaRouter = Router();
+import { validateSchema } from "../middlewares/validator-mid.js";
+import { SolicitudEmpresaSchema } from "../zod-schema/solicitudempresa-schema.js";
 
 //obtener
 SolicitudEmpresaRouter.get("/", solicitudEmpresaCtrl.getSolicitudEmpresa);
@@ -10,18 +12,21 @@ SolicitudEmpresaRouter.get("/", solicitudEmpresaCtrl.getSolicitudEmpresa);
 
 SolicitudEmpresaRouter.post(
   "/agregar",
-  solicitudEmpresaCtrl.saveSolicitudEmpresa
+  validateSchema(SolicitudEmpresaSchema),
+  solicitudEmpresaCtrl.saveSolicitudEmpreesa
 );
 
 //editar
 SolicitudEmpresaRouter.put(
-  "/editar",
+  "/editar/:id",
+  validateSchema(SolicitudEmpresaSchema),
   solicitudEmpresaCtrl.editSolicitudEmpresa
 );
 
 //eliminar
 SolicitudEmpresaRouter.delete(
   "/eliminar",
+  validateSchema(SolicitudEmpresaSchema),
   solicitudEmpresaCtrl.deleteSolicitudEmpresa
 );
 

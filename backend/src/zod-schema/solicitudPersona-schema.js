@@ -1,53 +1,17 @@
 import { z } from "zod";
 
 //validacion para registrase
+
 export const SolicitudPersonaSchema = z.object({
-  nombre: z.string({
-    required_error: "Nombre  Incorrecto",
+  usuario: z.string(), // Aquí deberías utilizar el tipo de dato adecuado para representar un ObjectId
+  monto: z.number().refine((val) => typeof val === "number", {
+    message: "El campo 'monto' debe ser un número.",
   }),
-  apellido: z.string({
-    required_error: "Apellido Incorrecto",
+  tasainteres: z.number().refine((val) => typeof val === "number", {
+    message: "El campo 'tasainteres' debe ser un número.",
+  }), // Puedes utilizar el tipo de dato adecuado para Decimal128 si Zod lo soporta
+  duracionMeses: z.number().refine((val) => typeof val === "number", {
+    message: "El campo 'duracionMeses' debe ser un número.",
   }),
-  documento: z.string({
-    required_error: "Documento Incorrecto",
-  }),
-  nacionalidad: z.string({
-    required_error: "Nacionalidad Incorrecta",
-  }),
-  sexo: z.string({
-    required_error: "Ingreso el Genero Correcto",
-  }),
-  apodo: z.string({
-    required_error: "Ingreso un Apodo",
-  }),
-  ocupacion: z.string({
-    required_error: "Ingrese una ocupacion Valida",
-  }),
-
-  lugartrabajo: z.string({
-    required_error: "Ingrese un lugar de trabajo Valido",
-  }),
-  telefonoResidencial: z.string({
-    required_error: "Ingrese un telefono Valido",
-  }),
-
-  celular: z.string({
-    required_error: "Ingrese un celular Valido",
-  }),
-  email: z.string({
-    required_error: "Ingrese un Correo Valido",
-  }),
-  direccionpersonal: z.string({
-    required_error: "Ingrese una Direccion Valida",
-  }),
-  direccionfamiliar: z.string({
-    required_error: "Ingrese una Direccion Valida",
-  }),
-  direcciontrabajo: z.string({
-    required_error: "Ingrese una Direccion Valida",
-  }),
-
-  direccionfamiliar: z.string({
-    required_error: "Ingrese el estatus",
-  }),
+  estatus: z.string().default("pendiente"),
 });

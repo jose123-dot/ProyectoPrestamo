@@ -1,9 +1,7 @@
 //importador libreria
 import { Router } from "express";
 import * as solicitudPersonaCtrl from "../Controller/solicitudpersona-ctrl.js";
-import multer from "multer";
-const upload = multer({ dest: "uploads" });
-//
+
 import { validateSchema } from "../middlewares/validator-mid.js";
 import { SolicitudPersonaSchema } from "../zod-schema/solicitudPersona-schema.js";
 const SolicitudPersonaRouter = Router();
@@ -15,7 +13,7 @@ SolicitudPersonaRouter.get("/", solicitudPersonaCtrl.getSolicitudPersona);
 
 SolicitudPersonaRouter.post(
   "/agregar",
-  solicitudPersonaCtrl.upload.array("documentos"),
+  validateSchema(SolicitudPersonaSchema),
   solicitudPersonaCtrl.saveSolicitudPersona
 );
 
@@ -29,6 +27,7 @@ SolicitudPersonaRouter.put(
 //eliminar
 SolicitudPersonaRouter.delete(
   "/eliminar/:id",
+  validateSchema(SolicitudPersonaSchema),
   solicitudPersonaCtrl.deleteSolicitudPersona
 );
 

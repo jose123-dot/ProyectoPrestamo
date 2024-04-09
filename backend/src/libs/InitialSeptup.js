@@ -12,6 +12,8 @@ export const createRol = async () => {
       new roles({ nombre: "user_Reviewer" }).save(),
       new roles({ nombre: "user_Biller" }).save(),
       new roles({ nombre: "user_Employer" }).save(),
+      new roles({ nombre: "user_Lender" }).save(), //prestamista
+      new roles({ nombre: "user_debtor" }).save(), //deudor
       new roles({ nombre: "user_Root" }).save(),
     ]);
 
