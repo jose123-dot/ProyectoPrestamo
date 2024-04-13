@@ -86,13 +86,13 @@ export const registerSchema = z.object({
 
   otrosingresos: z.boolean().optional(),
 
-  poseeinmueble: z.boolean().optional(),
+  poseeinmueble: z.string().optional(),
 
   valorinmueble: z.number().min(0).optional(),
 
   poseevehiculo: z.boolean().optional(),
 
-  valorvehiculo: z.string().min(0).optional(),
+  valorvehiculo: z.number().min(0).optional(),
 
   nombreEmpresa: z.string().max(50).optional(),
 
@@ -114,7 +114,7 @@ export const registerSchema = z.object({
 
   paisfundacion: z.string().max(20).optional(),
 
-  ingresosanuales: z.string().optional(),
+  ingresosanuales: z.number().optional(),
 
-  totalactivos: z.string().optional(),
+  totalactivos: z.number().optional(),
 });
