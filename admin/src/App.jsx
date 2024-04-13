@@ -7,6 +7,8 @@ import MetodoPago from "./page/metodopago/metodopago";
 
 import Contrato from "./page/contrato/contrato";
 import Cliente from "./page/cliente/cliente";
+import PagoPrestamo from "./page/PagoPrestamo/PagoPrestamo";
+import Prestamo from "./page/prestamo/prestamo";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/metodopago" element={<MetodoPago />}></Route>
         <Route path="/contrato" element={<Contrato />}></Route>
         <Route path="/cliente" element={<Cliente />}></Route>
+        <Route path="/PagoPrestamo" element={<PagoPrestamo />}></Route>
+        <Route path="/prestamo" element={<Prestamo />}></Route>
       </Routes>
     </BrowserRouter>
   );

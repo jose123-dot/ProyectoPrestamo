@@ -72,7 +72,7 @@ const Menu = () => {
 
           <Navbar className="bg-body-tertiary">
             <Container>
-              <Navbar.Brand href="/prestamo">Pago Prestamo</Navbar.Brand>
+              <Navbar.Brand href="/PagoPrestamo">Pago Prestamo</Navbar.Brand>
             </Container>
           </Navbar>
 
